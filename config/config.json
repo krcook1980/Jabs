@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "passport_demo",
-    "host": "127.0.0.1",
+    "username": "DB_HOST",
+    "password": "DB_PASS",
+    "database": "DB_DATA",
+    "host": "DB_HOST",
     "dialect": "mysql"
   },
   "test": {
