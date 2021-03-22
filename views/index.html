@@ -61,7 +61,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="inputCovidPrevious">Have tested positive for COVID-19 prior to receiving a vaccine?</label>
+            <label for="inputCovidPrevious">Have you tested positive for COVID-19 prior to receiving a vaccine?</label>
             <select id="inputCovidPrevious" class="form-control">
               <option selected>Choose One...</option>
               <option value="Yes">Yes</option>
@@ -212,11 +212,23 @@
             </select>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="symptomOther1">
-              <label class="form-check-label" for="symptomOther1">Other</label>
+              <label class="form-check-label" for="symptomOther1">Other Symptoms</label>
             </div>
             <input type="text" id="otherDuration1" class="form-control"
               placeholder="Please provide any other symptoms experienced">
-
+            <input type="text" id="otherDuration1" class="form-control" placeholder="Symptom description">
+            </input>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputSecondDose">Date of second dose?</label>
+            <input type="date" id="inputSecondDose" class="form-control">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="noDose2">
+              <label class="form-check-label" for="symptomFever2">I have not yet received my 2nd dose.</label>
+            </div>
+            </input>
           </div>
         </div>
       </div>
@@ -338,6 +350,7 @@
                 <option value="N/A">N/A</option>
               </select>
             </div>
+// styleIndex
             <div class="form-group">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="symptomAllergicReaction2">
@@ -368,10 +381,47 @@
       </div>
     </form>
 
+//=======
+            <select id="swellingDuration2" class="form-control">
+              <option selected>Symptom Duration</option>
+              <option value="0-1 Day">0-1 Day</option>
+              <option value="2-3 Days">2-3 Days</option>
+              <option value="3-5 Days">3-5 Days</option>
+              <option value="Greater than 5 Days">Greater than 5 Days</option>
+              <option value="N/A">N/A</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="symptomAllergicReaction2">
+              <label class="form-check-label" for="symptomAllergicReaction2">Severe Allergic Reaction</label>
+            </div>
+            <select id="allergicReactionDuration2" class="form-control">
+              <option selected>Symptom Duration</option>
+              <option value="0-1 Day">0-1 Day</option>
+              <option value="2-3 Days">2-3 Days</option>
+              <option value="3-5 Days">3-5 Days</option>
+              <option value="Greater than 5 Days">Greater than 5 Days</option>
+              <option value="N/A">N/A</option>
+            </select>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="symptomOther2">
+              <label class="form-check-label" for="symptomOther2">Other Symptoms</label>
+            </div>
+            <input type="text" id="otherDuration2" class="form-control" placeholder="Symptom description">
+            </input>
+          </div>
+          <div class="form-group">
+            <label class="form-check-label" for="requireHospital">Did you require medical care after receiving a
+              dose?</label>
+            <input type="text" id="requireHospital" class="form-control" placeholder="Please provide details">
+            </input>
+          </div>
+        </div><a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Submit</a>
+      </form>
+    </div>
+//main
   </div>
-
-
-
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
