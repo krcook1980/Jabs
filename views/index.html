@@ -10,21 +10,24 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../public/assets/css/style.css" class="style">
 </head>
 
 <body>
   <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron textBlue">
       <h1 class="display-3">COVID-19 Vaccine Data Collection</h1>
       <p class="lead">First time visitors, please fill in the following fields:</p>
       <p class="font-italic">(Returning users, please proceed to the Statistics page)</p>
-      <form>
-        <hr class="my-2">
+    </div>
+    <form>
+      <hr class="my-2">
+      <!-- Demographic Questions -->
+      <div class="container textBlue">
         <div class="form-row">
           <div class="form-group">
             <label for="inputAge">Age</label>
             <input type="number" id="inputAge" class="form-control">
-            </input>
           </div>
           <div class="form-group">
             <label for="inputRace">Race</label>
@@ -67,6 +70,10 @@
             </select>
           </div>
         </div>
+      </div>
+      <hr class="my-2">
+      <!-- First Shot Symptom Questions -->
+      <div class="container textBlue">
         <div class="form-row">
           <div class="form-group">
             <label for="inputVaccine">Vaccine Taken</label>
@@ -80,7 +87,7 @@
           <div class="form-group">
             <label for="inputFirstDose">Date of first dose?</label>
             <input type="date" id="inputFirstDose" class="form-control">
-            </input>
+
           </div>
         </div>
         <h4>Symptoms Experienced:</h4>
@@ -207,6 +214,8 @@
               <input class="form-check-input" type="checkbox" value="" id="symptomOther1">
               <label class="form-check-label" for="symptomOther1">Other Symptoms</label>
             </div>
+            <input type="text" id="otherDuration1" class="form-control"
+              placeholder="Please provide any other symptoms experienced">
             <input type="text" id="otherDuration1" class="form-control" placeholder="Symptom description">
             </input>
           </div>
@@ -220,107 +229,159 @@
               <label class="form-check-label" for="symptomFever2">I have not yet received my 2nd dose.</label>
             </div>
             </input>
-
           </div>
         </div>
-        <h4>Symptoms Experienced:</h4>
-        <h6>Please select any symptoms you experienced after your 2nd dose:</h6>
-        <div class="form-row">
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="symptomFever2">
-              <label class="form-check-label" for="symptomFever2">Fever</label>
+      </div>
+        <hr class="my-2">
+        <!-- Second Shot Symptom Questions -->
+      <div class="container textBlue">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="inputFirstDose">Date of second dose?</label>
+              <input type="date" id="inputSecondDose" class="form-control">
+
             </div>
-            <select id="feverDuration2" class="form-control">
-              <option selected>Symptom Duration</option>
-              <option value="0-1 Day">0-1 Day</option>
-              <option value="2-3 Days">2-3 Days</option>
-              <option value="3-5 Days">3-5 Days</option>
-              <option value="Greater than 5 Days">Greater than 5 Days</option>
-              <option value="N/A">N/A</option>
-            </select>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="symptomRash2">
-              <label class="form-check-label" for="symptomRash2">Rash</label>
-            </div>
-            <select id="rashDuration2" class="form-control">
-              <option selected>Symptom Duration</option>
-              <option value="0-1 Day">0-1 Day</option>
-              <option value="2-3 Days">2-3 Days</option>
-              <option value="3-5 Days">3-5 Days</option>
-              <option value="Greater than 5 Days">Greater than 5 Days</option>
-              <option value="N/A">N/A</option>
-            </select>
           </div>
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="symptomInjectionPain2">
-              <label class="form-check-label" for="symptomInjectionPain2">Injection Site Pain</label>
+
+          <h4>Symptoms Experienced:</h4>
+          <h6>Please select any symptoms you experienced after your 2nd dose:</h6>
+          <div class="form-row">
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="symptomFever2">
+                <label class="form-check-label" for="symptomFever2">Fever</label>
+              </div>
+              <select id="feverDuration2" class="form-control">
+                <option selected>Symptom Duration</option>
+                <option value="0-1 Day">0-1 Day</option>
+                <option value="2-3 Days">2-3 Days</option>
+                <option value="3-5 Days">3-5 Days</option>
+                <option value="Greater than 5 Days">Greater than 5 Days</option>
+                <option value="N/A">N/A</option>
+              </select>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="symptomRash2">
+                <label class="form-check-label" for="symptomRash2">Rash</label>
+              </div>
+              <select id="rashDuration2" class="form-control">
+                <option selected>Symptom Duration</option>
+                <option value="0-1 Day">0-1 Day</option>
+                <option value="2-3 Days">2-3 Days</option>
+                <option value="3-5 Days">3-5 Days</option>
+                <option value="Greater than 5 Days">Greater than 5 Days</option>
+                <option value="N/A">N/A</option>
+              </select>
             </div>
-            <select id="injectionPainDuration2" class="form-control">
-              <option selected>Symptom Duration</option>
-              <option value="0-1 Day">0-1 Day</option>
-              <option value="2-3 Days">2-3 Days</option>
-              <option value="3-5 Days">3-5 Days</option>
-              <option value="Greater than 5 Days">Greater than 5 Days</option>
-              <option value="N/A">N/A</option>
-            </select>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="symptomHeadache2">
-              <label class="form-check-label" for="symptomHeadache2">Headache</label>
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="symptomInjectionPain2">
+                <label class="form-check-label" for="symptomInjectionPain2">Injection Site Pain</label>
+              </div>
+              <select id="injectionPainDuration2" class="form-control">
+                <option selected>Symptom Duration</option>
+                <option value="0-1 Day">0-1 Day</option>
+                <option value="2-3 Days">2-3 Days</option>
+                <option value="3-5 Days">3-5 Days</option>
+                <option value="Greater than 5 Days">Greater than 5 Days</option>
+                <option value="N/A">N/A</option>
+              </select>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="symptomHeadache2">
+                <label class="form-check-label" for="symptomHeadache2">Headache</label>
+              </div>
+              <select id="headacheDuration2" class="form-control">
+                <option selected>Symptom Duration</option>
+                <option value="0-1 Day">0-1 Day</option>
+                <option value="2-3 Days">2-3 Days</option>
+                <option value="3-5 Days">3-5 Days</option>
+                <option value="Greater than 5 Days">Greater than 5 Days</option>
+                <option value="N/A">N/A</option>
+              </select>
             </div>
-            <select id="headacheDuration2" class="form-control">
-              <option selected>Symptom Duration</option>
-              <option value="0-1 Day">0-1 Day</option>
-              <option value="2-3 Days">2-3 Days</option>
-              <option value="3-5 Days">3-5 Days</option>
-              <option value="Greater than 5 Days">Greater than 5 Days</option>
-              <option value="N/A">N/A</option>
-            </select>
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="symptomMuscleAches2">
+                <label class="form-check-label" for="symptomMuscleAches2">Muscle Aches/Pain</label>
+              </div>
+              <select id="muscleAcheDuration2" class="form-control">
+                <option selected>Symptom Duration</option>
+                <option value="0-1 Day">0-1 Day</option>
+                <option value="2-3 Days">2-3 Days</option>
+                <option value="3-5 Days">3-5 Days</option>
+                <option value="Greater than 5 Days">Greater than 5 Days</option>
+                <option value="N/A">N/A</option>
+              </select>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="symptomChills2">
+                <label class="form-check-label" for="symptomChills2">Chills</label>
+              </div>
+              <select id="chillsDuration2" class="form-control">
+                <option selected>Symptom Duration</option>
+                <option value="0-1 Day">0-1 Day</option>
+                <option value="2-3 Days">2-3 Days</option>
+                <option value="3-5 Days">3-5 Days</option>
+                <option value="Greater than 5 Days">Greater than 5 Days</option>
+                <option value="N/A">N/A</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="symptomNausea2">
+                <label class="form-check-label" for="symptomNausea2">Nausea</label>
+              </div>
+              <select id="nauseaDuration2" class="form-control">
+                <option selected>Symptom Duration</option>
+                <option value="0-1 Day">0-1 Day</option>
+                <option value="2-3 Days">2-3 Days</option>
+                <option value="3-5 Days">3-5 Days</option>
+                <option value="Greater than 5 Days">Greater than 5 Days</option>
+                <option value="N/A">N/A</option>
+              </select>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="symptomSwelling2">
+                <label class="form-check-label" for="symptomSwelling2">Swelling</label>
+              </div>
+              <select id="swellingDuration2" class="form-control">
+                <option selected>Symptom Duration</option>
+                <option value="0-1 Day">0-1 Day</option>
+                <option value="2-3 Days">2-3 Days</option>
+                <option value="3-5 Days">3-5 Days</option>
+                <option value="Greater than 5 Days">Greater than 5 Days</option>
+                <option value="N/A">N/A</option>
+              </select>
+            </div>
+// styleIndex
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="symptomAllergicReaction2">
+                <label class="form-check-label" for="symptomAllergicReaction2">Severe Allergic Reaction</label>
+              </div>
+              <select id="allergicReactionDuration2" class="form-control">
+                <option selected>Symptom Duration</option>
+                <option value="0-1 Day">0-1 Day</option>
+                <option value="2-3 Days">2-3 Days</option>
+                <option value="3-5 Days">3-5 Days</option>
+                <option value="Greater than 5 Days">Greater than 5 Days</option>
+                <option value="N/A">N/A</option>
+              </select>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="symptomOther2">
+                <label class="form-check-label" for="symptomOther2">Other</label>
+              </div>
+              <input type="text" id="otherDuration2" class="form-control"
+                placeholder="Please provide any other symptoms experienced">
+
+            </div>
           </div>
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="symptomMuscleAches2">
-              <label class="form-check-label" for="symptomMuscleAches2">Muscle Aches/Pain</label>
-            </div>
-            <select id="muscleAcheDuration2" class="form-control">
-              <option selected>Symptom Duration</option>
-              <option value="0-1 Day">0-1 Day</option>
-              <option value="2-3 Days">2-3 Days</option>
-              <option value="3-5 Days">3-5 Days</option>
-              <option value="Greater than 5 Days">Greater than 5 Days</option>
-              <option value="N/A">N/A</option>
-            </select>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="symptomChills2">
-              <label class="form-check-label" for="symptomChills2">Chills</label>
-            </div>
-            <select id="chillsDuration2" class="form-control">
-              <option selected>Symptom Duration</option>
-              <option value="0-1 Day">0-1 Day</option>
-              <option value="2-3 Days">2-3 Days</option>
-              <option value="3-5 Days">3-5 Days</option>
-              <option value="Greater than 5 Days">Greater than 5 Days</option>
-              <option value="N/A">N/A</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="symptomNausea2">
-              <label class="form-check-label" for="symptomNausea2">Nausea</label>
-            </div>
-            <select id="nauseaDuration2" class="form-control">
-              <option selected>Symptom Duration</option>
-              <option value="0-1 Day">0-1 Day</option>
-              <option value="2-3 Days">2-3 Days</option>
-              <option value="3-5 Days">3-5 Days</option>
-              <option value="Greater than 5 Days">Greater than 5 Days</option>
-              <option value="N/A">N/A</option>
-            </select>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="symptomSwelling2">
-              <label class="form-check-label" for="symptomSwelling2">Swelling</label>
-            </div>
+          
+            <a class="btn green btn-lg" role="button">Submit</a>
+         
+
+        </div>
+      </div>
+    </form>
+
+//=======
             <select id="swellingDuration2" class="form-control">
               <option selected>Symptom Duration</option>
               <option value="0-1 Day">0-1 Day</option>
@@ -359,6 +420,7 @@
         </div><a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Submit</a>
       </form>
     </div>
+//main
   </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
