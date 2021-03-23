@@ -1,4 +1,5 @@
 'use strict';
+const Vaccine = require("./vaccine");
 const {
   Model
 } = require('sequelize');
@@ -11,6 +12,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      
+        models.User.hasMany(models.Vaccine);
+      
     }
   };
   User.init({
