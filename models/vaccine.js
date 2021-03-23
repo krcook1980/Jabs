@@ -1,4 +1,6 @@
 'use strict';
+const Symptom = require("./symptom");
+const User = require("./user");
 const {
   Model
 } = require('sequelize');
@@ -11,6 +13,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.Vaccine.belongsTo(models.User, {
+        as: 'user_id',
+        foreignKey: 'current_user_id',
+        constraints: false,
+        onDelete: 'cascade',
+    });
+    models.Vaccine.hasMany(models.Symptom);
+
     }
   };
   Vaccine.init({

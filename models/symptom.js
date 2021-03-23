@@ -1,4 +1,5 @@
 'use strict';
+const Vaccine = require("./vaccine");
 const {
   Model
 } = require('sequelize');
@@ -11,6 +12,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.Symptom.belongsTo(models.Vaccine, {
+        as: 'shot_id',
+        foreignKey: 'current_shot_id',
+        constraints: false,
+        onDelete: 'cascade',
+    });
     }
   };
   Symptom.init({
