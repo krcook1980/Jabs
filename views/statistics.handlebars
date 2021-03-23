@@ -1,0 +1,12 @@
+<h1>Statistics</h1>
+<script>
+    var data = [{ this.trace1 }, { this.trace2 }, { this.trace3 }];
+    var layout = {
+        title: 'Vaccine Statistics',
+        xaxis: {
+            tickangle: -45
+        },
+        barmode: 'group'
+    };
+    res.render(Plotly.newPlot(document.getElementById('myDiv'), data, layout))
+</script>
