@@ -12,164 +12,164 @@ module.exports = {
      * }], {});
     */
      const vaccine = await queryInterface.sequelize.query(
-      `SELECT id from VACCINE;`
+      `SELECT id from VACCINES;`
     );
 
-    const vaccineRow = user[0];
-    await queryInterface.bulkInsert('Symptom', [
+    const vaccineRow = vaccine[0];
+    await queryInterface.bulkInsert('Symptoms', [
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 1
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 2
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 3
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 4
       },
       {
         symptom: 'rash',
         duration: 7,
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 5
       },
       {
         symptom: 'fatigue',
         duration: 5,
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 6
       },
       {
         symptom: 'SAR',
         duration: 3,
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 7
       },
       {
         symptom: 'null',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 8
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 9
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 10
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 11
       },
       {
         symptom: 'fatigue',
         duration: 3,
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 12
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 13
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 14
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 15
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 16
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 17
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 18
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 19
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 20
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 21
       },
       {
         symptom: 'none',
         duration: 'null',
         createdAt: new Date(),
         updatedAt: new Date(),
-        VaccineId: vaccineRow[0].id
+        VaccineId: 22
       },
 
     ])

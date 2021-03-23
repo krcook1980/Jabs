@@ -6,7 +6,7 @@ const express = require('express');
 var passport = require("./config/passport");
 var session = require("express-session");
 
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 // Requiring our models for syncing
