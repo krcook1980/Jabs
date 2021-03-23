@@ -10,21 +10,24 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../public/assets/css/style.css" class="style">
 </head>
 
 <body>
   <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron textBlue">
       <h1 class="display-3">COVID-19 Vaccine Data Collection</h1>
       <p class="lead">First time visitors, please fill in the following fields:</p>
       <p class="font-italic">(Returning users, please proceed to the Statistics page)</p>
-      <form>
-        <hr class="my-2">
+    </div>
+    <form>
+      <hr class="my-2">
+      <!-- Demographic Questions -->
+      <div class="container textBlue">
         <div class="form-row">
           <div class="form-group">
             <label for="inputAge">Age</label>
             <input type="number" id="inputAge" class="form-control">
-            </input>
           </div>
           <div class="form-group">
             <label for="inputRace">Race</label>
@@ -67,6 +70,10 @@
             </select>
           </div>
         </div>
+      </div>
+      <hr class="my-2">
+      <!-- First Shot Symptom Questions -->
+      <div class="container textBlue">
         <div class="form-row">
           <div class="form-group">
             <label for="inputVaccine">Vaccine Taken</label>
@@ -80,7 +87,7 @@
           <div class="form-group">
             <label for="inputFirstDose">Date of first dose?</label>
             <input type="date" id="inputFirstDose" class="form-control">
-            </input>
+
           </div>
         </div>
         <h4>Symptoms Experienced:</h4>
@@ -220,9 +227,20 @@
               <label class="form-check-label" for="symptomFever2">I have not yet received my 2nd dose.</label>
             </div>
             </input>
+          </div>
+        </div>
+      </div>
+      <hr class="my-2">
+      <!-- Second Shot Symptom Questions -->
+      <div class="container textBlue">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputFirstDose">Date of second dose?</label>
+            <input type="date" id="inputSecondDose" class="form-control">
 
           </div>
         </div>
+
         <h4>Symptoms Experienced:</h4>
         <h6>Please select any symptoms you experienced after your 2nd dose:</h6>
         <div class="form-row">
@@ -345,21 +363,18 @@
             </select>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="symptomOther2">
-              <label class="form-check-label" for="symptomOther2">Other Symptoms</label>
+              <label class="form-check-label" for="symptomOther2">Other</label>
             </div>
-            <input type="text" id="otherDuration2" class="form-control" placeholder="Symptom description">
-            </input>
+            <input type="text" id="otherDuration2" class="form-control"
+              placeholder="Please provide any other symptoms experienced">
           </div>
-          <div class="form-group">
-            <label class="form-check-label" for="requireHospital">Did you require medical care after receiving a
-              dose?</label>
-            <input type="text" id="requireHospital" class="form-control" placeholder="Please provide details">
-            </input>
-          </div>
-        </div><a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Submit</a>
-      </form>
-    </div>
+        </div>
+        <a class="btn green btn-lg mb-2" role="button">Submit</a>
+      </div>
+    </form>
   </div>
+  </form>
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
