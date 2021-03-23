@@ -11,7 +11,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert('User', [
+    await queryInterface.bulkInsert('Users', [
       {
         race: 'White',
         sex: 'Female',
@@ -48,7 +48,7 @@ module.exports = {
         race: 'Hispanic',
         sex: 'Male',
         age: 46,
-        location: 'Texas'
+        location: 'Texas',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -56,7 +56,7 @@ module.exports = {
         race: 'Hispanic',
         sex: 'Female',
         age: 46,
-        location: 'Texas'
+        location: 'Texas',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -88,17 +88,17 @@ module.exports = {
         race: 'White',
         sex: 'Female',
         age: 91,
-        location: 'Califo
+        location: 'California',
         createdAt: new Date(),
-        updatedAt: new Date()rnia',
+        updatedAt: new Date(),
       },
       {
         race: 'White',
         sex: 'Female',
         age: 61,
-        location: 'Califo
+        location: 'California',
         createdAt: new Date(),
-        updatedAt: new Date()rnia',
+        updatedAt: new Date(),
       },
 
 
