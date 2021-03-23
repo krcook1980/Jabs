@@ -19,5 +19,8 @@
     "passport": "^0.4.1",
     "plotly": "^1.0.6",
     "sequelize": "^6.5.1"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
   }
 }
