@@ -71,7 +71,6 @@
           </div>
         </div>
       </div>
-      <hr class="my-2">
       <!-- First Shot Symptom Questions -->
       <div class="container textBlue">
         <div class="form-row">
@@ -224,9 +223,12 @@
       <div class="container textBlue">
         <div class="form-row">
           <div class="form-group">
-            <label for="inputFirstDose">Date of second dose?</label>
+            <label for="inputSecondDose">Date of second dose?</label>
             <input type="date" id="inputSecondDose" class="form-control">
-
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="secondDose">
+              <label class="form-check-label" for="secondDose">I have not yet received my second dose</label>
+            </div>
           </div>
         </div>
         <h4>Symptoms Experienced:</h4>
@@ -353,8 +355,7 @@
               <input class="form-check-input" type="checkbox" value="" id="symptomOther2">
               <label class="form-check-label" for="symptomOther2">Other</label>
             </div>
-            <input type="text" id="otherDuration2" class="form-control"
-              placeholder="Please provide any other symptoms experienced">
+            <input type="text" id="otherDuration2" class="form-control" placeholder="Symptom description">
           </div>
         </div>
         <a class="btn green btn-lg" role="button">Submit</a>
