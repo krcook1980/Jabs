@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Administrator Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+        </div>
+    </nav>
+    <div class="container1">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 contain1">
+                <h2>Admin Sign In</h2>
+                <form class="login">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="username" class="form-control" id="username-input" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="password-input" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-default" id="login-btn">Login</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="container2" id="hide">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h2>Welcome Administrators</h2>
+                <form class="control">
+                    <div class="form-group">
+                        <label for="id">Enter the id of the entry to delete: </label>
+                        <input type="id-delete" class="form-control" id="id-input" placeholder="id">
+                    </div>
+                    <button type="delete" class="btn btn-default">Delete Entry</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="login.js"></script>
+
+</body>
+
+</html>
