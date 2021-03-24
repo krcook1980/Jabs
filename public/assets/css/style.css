@@ -1,7 +1,5 @@
 .lightBlue {
     background-color: #578BF2;
-    
-
 
 }
 .textBlue{
@@ -39,4 +37,22 @@
 }
 .green {
     background-color: #82d9c9; 
+}
+
+
+h2{
+    color: #03318C;
+}
+.contain1 {
+  margin-top: 50px;
+  color: #03318C;
+  height:300px;
+}
+
+.navbar{
+    background-color: #215BA6;
+}
+
+#hide{
+    display:none;
 }
