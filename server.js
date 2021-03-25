@@ -9,6 +9,9 @@ const exphbs = require('express-handlebars');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+
 // Requiring our models for syncing
 const db = require('./models');
 // Sets up the Express app to handle data parsing
@@ -33,6 +36,6 @@ require("./routes/html-routes.js")(app);
 // authorRouter(app);
 // apiRouter(app);
 
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync().then(() => {
   app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
 });
