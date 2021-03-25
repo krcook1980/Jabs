@@ -10,7 +10,9 @@ const exphbs = require("express-handlebars");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
 
 // Requiring our models for syncing
 const db = require("./models");
@@ -29,6 +31,7 @@ app.use(express.static("public"));
 // Invoke routes
 
 require("./routes/api-routes.js")(app);
+require("./routes/api-routes2.js")(app);
 require("./routes/html-routes.js")(app);
 
 // htmlRouter(app);
