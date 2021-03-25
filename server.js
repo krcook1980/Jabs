@@ -22,8 +22,9 @@ app.use(passport.session());
 app.use(express.static('public'));
 // Invoke routes
 
-require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
+
 
 // htmlRouter(app);
 // authorRouter(app);
