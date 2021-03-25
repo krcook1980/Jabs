@@ -37,6 +37,10 @@
               <option value="Black/African American">Black/African American</option>
               <option value="American Indian/Alaska Native">American Indian/Alaska Native</option>
               <option value="American Indian/Alaska Native">Chinese</option>
+              <option value="Hispanic">Hispanic</option>
+              <option value="Latino">Latino</option>
+              <option value="Spanish">Spanish</option>
+              <option value="Other Hispanic">Other Hispanic</option>
               <option value="Pacific Islander">Pacific Islander</option>
               <option value="Filipino">Filipino</option>
               <option value="Korean">Korean</option>
@@ -47,6 +51,10 @@
               <option value="Asian Indian">Asian Indian</option>
               <option value="Other">Other</option>
             </select>
+          </div>
+          <div class="form-group">
+            <label for="inputState">State</label>
+            <input type="text" id="inputstate" class="form-control" placeholder="Utah">
           </div>
         </div>
         <div class="form-row">
@@ -215,6 +223,10 @@
             </div>
             <input type="text" id="otherDuration1" class="form-control" placeholder="Symptom description">
             </input>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="noSymptoms1">
+              <label class="form-check-label" for="noSymptoms1">I experienced no symptoms</label>
+            </div>
           </div>
         </div>
       </div>
@@ -353,9 +365,13 @@
             </select>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="symptomOther2">
-              <label class="form-check-label" for="symptomOther2">Other</label>
+              <label class="form-check-label" for="symptomOther2">Other Symptoms</label>
             </div>
             <input type="text" id="otherDuration2" class="form-control" placeholder="Symptom description">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="noSymptoms2">
+              <label class="form-check-label" for="noSymptoms2">I experienced no symptoms</label>
+            </div>
           </div>
         </div>
         <a class="btn green btn-lg" role="button">Submit</a>
