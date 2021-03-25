@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // Static directory
