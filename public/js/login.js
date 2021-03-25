@@ -13,9 +13,11 @@ $(document).ready(() => {
     };
 
     if (!userData.username || !userData.password) {
+      console.log("return");
       return;
     }
 
+   // console.log("userdata" + userData.password);
     // If we have a username and password we run the loginUser function and clear the form
     loginUser(userData.username, userData.password);
     usernameInput.val("");
@@ -24,13 +26,17 @@ $(document).ready(() => {
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
   function loginUser(username, password) {
+    
     $.post("/api/login", {
       username: username,
       password: password
-    })
+    },
+    console.log("login" + username))
       .then(() => {
+        debugger
+        console.log("window replace");
         window.location.replace("/admin");
-        // If there's an error, log the error
+        
       })
       .catch(err => {
         console.log(err);

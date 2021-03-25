@@ -6,9 +6,11 @@ const express = require('express');
 var passport = require("./config/passport");
 var session = require("express-session");
 
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+
 // Requiring our models for syncing
 const db = require('./models');
 // Sets up the Express app to handle data parsing
@@ -29,6 +31,6 @@ require("./routes/api-routes.js")(app);
 // authorRouter(app);
 // apiRouter(app);
 
-db.sequelize.sync({force:true}).then(() => {
+db.sequelize.sync().then(() => {
   app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
 });
