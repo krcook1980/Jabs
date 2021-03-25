@@ -5,6 +5,7 @@ const express = require('express');
 // Sets up the Express App
 var passport = require("./config/passport");
 var session = require("express-session");
+const exphbs = require('express-handlebars');
 
 
 const app = express();
@@ -18,17 +19,20 @@ app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
 // Static directory
 app.use(express.static('public'));
 // Invoke routes
-
-require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
+
 
 // htmlRouter(app);
 // authorRouter(app);
 // apiRouter(app);
 
-db.sequelize.sync({force:true}).then(() => {
+db.sequelize.sync({}).then(() => {
   app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
 });

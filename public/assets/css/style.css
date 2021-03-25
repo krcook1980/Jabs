@@ -1,16 +1,9 @@
-.lightBlue {
-    background-color: #578BF2;
 
-}
 .textBlue{
     color: #03318c;
    
 }
 
-.middleBlue{
-    background-color: #215ba6;
-    
-}
 
 .jumbotron {
     background-color: #82d9c9; 
@@ -55,4 +48,16 @@ h2{
 
 #hide{
     display:none;
+}
+
+
+/* colors below are simply to hand on to the code -- NOT linked to any sheet yet */
+.lightBlue {
+    background-color: #578BF2;
+
+}
+
+.middleBlue{
+    background-color: #215ba6;
+    
 }
