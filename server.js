@@ -5,7 +5,7 @@ const express = require('express');
 // Sets up the Express App
 var passport = require("./config/passport");
 var session = require("express-session");
-
+const exphbs = require('express-handlebars');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -17,6 +17,9 @@ app.use(express.json());
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
 // Static directory
 app.use(express.static('public'));
