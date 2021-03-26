@@ -55,4 +55,6 @@ var layout = {
 };
 
 Plotly.newPlot('myDiv', data, layout);
+Plotly.newPlot('myDiv2', data, layout);
+Plotly.newPlot('myDiv3', data, layout);
 // app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`))
