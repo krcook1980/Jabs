@@ -1,7 +1,10 @@
 {
     "liveServer.settings.port": 5501,
     "cSpell.words": [
+        "JAWSDB",
         "Moderna",
-        "Riden"
+        "Riden",
+        "exphbs",
+        "resave"
     ]
 }
