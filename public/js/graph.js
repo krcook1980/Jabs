@@ -1,17 +1,7 @@
-// const express = require('express');
-// const exphbs = require('express-handlebars');
-// const plotly = require('plotly.js-dist')
-// const app = express();
-
-// const PORT = process.env.PORT || 8080;
-
-// app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-// app.set('view engine', 'handlebars');
-
 var trace1 = {
-    x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever'],
+    x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever', 'No Symptoms'],
     // Y axis needs to be a variable 
-    y: [20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17],
+    y: [20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17, 10],
     type: 'bar',
     name: 'Pfizer',
     marker: {
@@ -20,9 +10,9 @@ var trace1 = {
 };
 
 var trace2 = {
-    x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever'],
+    x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever', 'No Symptoms'],
     // Y axis needs to be a variable
-    y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16],
+    y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16, 5],
     type: 'bar',
     name: 'Moderna',
     marker: {
@@ -31,18 +21,15 @@ var trace2 = {
 };
 
 var trace3 = {
-    x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever'],
+    x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever', 'No Symptoms'],
     // Y axis needs to be a variable.
-    y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16],
+    y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16, 10],
     type: 'bar',
     name: 'Johnson & Johnson',
     marker: {
         color: 'rgb(42,234,110)',
     }
 };
-// app.get('/statistics', (req, res) => res.render('statistic', trace1));
-// app.get('/statistics', (req, res) => res.render('statistic', trace2));
-// app.get('/statistics', (req, res) => res.render('statistic', trace3));
 
 var data = [trace1, trace2, trace3];
 
@@ -73,4 +60,3 @@ var layout3 = {
 Plotly.newPlot('myDiv', data, layout);
 Plotly.newPlot('myDiv2', data, layout2);
 Plotly.newPlot('myDiv3', data, layout3);
-// app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`))
