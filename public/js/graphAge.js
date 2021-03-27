@@ -33,14 +33,6 @@ var trace3 = {
 
 var data = [trace1, trace2, trace3];
 
-var layout = {
-    title: 'Race Symptoms',
-    xaxis: {
-        tickangle: -45
-    },
-    barmode: 'group'
-};
-
 var layout2 = {
     title: 'Age Symptoms',
     xaxis: {
@@ -49,14 +41,4 @@ var layout2 = {
     barmode: 'group'
 };
 
-var layout3 = {
-    title: 'Sex Symptoms',
-    xaxis: {
-        tickangle: -45
-    },
-    barmode: 'group'
-};
-
-Plotly.newPlot('myDiv', data, layout);
 Plotly.newPlot('myDiv2', data, layout2);
-Plotly.newPlot('myDiv3', data, layout3);
