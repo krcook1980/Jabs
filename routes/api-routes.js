@@ -59,3 +59,30 @@ module.exports = function(app) {
     }).then((dbPost) => res.json(dbPost));
   });
 };
+
+const Jonathan = () => {
+  db.User.findAll({
+    attributes: ['id', [db.sequelize.fn('sum', db.sequelize.col('fever')), 'count']],
+    group : [db.sequelize.col('Symptom.VaccineId')],
+    where: {
+    race: 'white'
+},
+  include: [
+       {
+      model: db.Vaccine,
+      where: {
+        vaccine_type: 'Pfizer'
+      },
+      include: [
+        {
+          model: db.Symptom,
+          
+          }
+        
+      ]
+    }
+  ],
+   
+}).then(res => console.log("I AM RIGHT HERE " + res));
+}
+ Jonathan()  
