@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   Vaccine.init({
     vaccine_type: DataTypes.STRING,
-    shot_id: DataTypes.INTEGER,
+    shot_id: {
+      type: DataTypes.INTEGER, autoIncrement: true},
     shot_one: DataTypes.BOOLEAN,
     shot_two: DataTypes.BOOLEAN
   }, {
