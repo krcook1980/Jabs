@@ -33,7 +33,7 @@ $(document).ready(() => {
     },
     console.log("login" + username))
       .then(() => {
-        debugger
+        
         console.log("window replace");
         window.location.replace("/admin");
         

@@ -54,4 +54,27 @@ module.exports = function(app) {
       });
     }
   });
+
+  app.post("/api/users", (req, res) => {
+    console.log(req.body);
+    db.User.create(req.body).then((dbPost) => res.json(dbPost));
+  });
+
+
+  app.delete("/api/users/:id", (req, res) => {
+    db.User.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbPost => res.json(dbPost));
+ 
+  })
+
+  app.get("/api/users/:id", (req, res) => {
+    db.User.findOne({
+      where:{
+        id: req.params.id
+      }
+    }).then((dbPost) => res.json(dbPost));
+  });
 };
