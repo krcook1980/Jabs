@@ -1,3 +1,13 @@
+const sexInput;
+$(document).ready(() => {
+
+    $("#sex-btn").on("click", event => {
+        event.preventDefault();
+        sexInput = $("#sexDrop").val();
+        sexInput.val("");
+    });
+
+
 var trace1 = {
     x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever', 'No Symptoms'],
     // Y axis needs to be a variable 
@@ -42,3 +52,5 @@ var layout3 = {
 };
 
 Plotly.newPlot('myDiv3', data, layout3);
+
+});

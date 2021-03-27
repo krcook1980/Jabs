@@ -1,3 +1,12 @@
+const ageInput;
+$(document).ready(() => {
+
+    $("#age-btn").on("click", event => {
+        event.preventDefault();
+        ageInput = $("#ageDrop").val();
+        ageInput.val("");
+    });
+
 var trace1 = {
     x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever', 'No Symptoms'],
     // Y axis needs to be a variable 
@@ -42,3 +51,6 @@ var layout2 = {
 };
 
 Plotly.newPlot('myDiv2', data, layout2);
+
+
+});
