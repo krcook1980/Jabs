@@ -19,8 +19,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Symptom.init({
-    symptom: DataTypes.STRING,
-    duration: DataTypes.STRING
+    pain_at_site: DataTypes.BOOLEAN,
+    fatigue: DataTypes.BOOLEAN,
+    headache: DataTypes.BOOLEAN,
+    muscle_soreness: DataTypes.BOOLEAN,
+    joint_pain: DataTypes.BOOLEAN,
+    nausea: DataTypes.BOOLEAN,
+    vomiting: DataTypes.BOOLEAN,
+    chills: DataTypes.BOOLEAN,
+    swelling: DataTypes.BOOLEAN,
+    rash: DataTypes.BOOLEAN,
+    fever: DataTypes.BOOLEAN,
+    severe_allergic_reaction: DataTypes.BOOLEAN,
+    no_symptoms: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Symptom',
