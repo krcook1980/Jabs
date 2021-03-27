@@ -58,31 +58,72 @@ module.exports = function(app) {
       }
     }).then((dbPost) => res.json(dbPost));
   });
+
+  app.get("api/race-graph/:race", (req, res) => {
+    db.User.findAll({
+      group : ['vaccine_type'],
+      attributes: [ 
+        [db.sequelize.fn('sum', db.sequelize.col('fever')), 'fever'],
+        [db.sequelize.fn('sum', db.sequelize.col('no_symptoms')), 'no_symptoms']
+      ],
+      logging: console.log,
+      where: {
+      race: 'white'
+  },
+    include: [
+         {
+        model: db.Vaccine, attributes: ['vaccine_type'],
+        
+        
+        include: [
+          {
+            model: db.Symptom, attributes: [],
+            
+            }
+          
+        ]
+      }
+    ],
+     
+  }).then(data => {
+   const stuff = JSON.stringify(data) 
+  res.json(data)
+    console.log("*********************I AM RIGHT HERE " + stuff)
+  });
+  })
+
 };
 
-const Jonathan = () => {
-  db.User.findAll({
-    attributes: ['id', [db.sequelize.fn('sum', db.sequelize.col('fever')), 'count']],
-    group : [db.sequelize.col('Symptom.VaccineId')],
-    where: {
-    race: 'white'
-},
-  include: [
-       {
-      model: db.Vaccine,
-      where: {
-        vaccine_type: 'Pfizer'
-      },
-      include: [
-        {
-          model: db.Symptom,
+// const Jonathan = () => {
+//   db.User.findAll({
+//     group : ['vaccine_type'],
+//     attributes: [ 
+//       [db.sequelize.fn('sum', db.sequelize.col('fever')), 'fever'],
+//       [db.sequelize.fn('sum', db.sequelize.col('no_symptoms')), 'no_symptoms']
+//     ],
+//     logging: console.log,
+//     where: {
+//     race: 'white'
+// },
+//   include: [
+//        {
+//       model: db.Vaccine, attributes: ['vaccine_type'],
+      
+      
+//       include: [
+//         {
+//           model: db.Symptom, attributes: [],
           
-          }
+//           }
         
-      ]
-    }
-  ],
+//       ]
+//     }
+//   ],
    
-}).then(res => console.log("I AM RIGHT HERE " + res));
-}
- Jonathan()  
+// }).then(data => {
+//  const stuff = JSON.stringify(data) 
+// res.json(data)
+//   console.log("*********************I AM RIGHT HERE " + stuff)
+// });
+// }
+//  Jonathan()  
