@@ -2,39 +2,83 @@
 <html lang="en">
 
 <head>
-    <title>Administrator</title>
+    <title>Welcome Administrators</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css" >
+    <link rel="stylesheet" href="./assets/css/style2.css">
+
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
+    <div class="container">
+
+        <div class="row mx-auto">
+            <a href="/logout">
+                Logout
+            </a>
+
+            <div class="col-xs-6 no-float mx-auto">
+
+                <h2>Welcome Administrators</h2>
+                <form class="manage">
+                    <div class="form-group">
+                        <label for="ID-change">Enter ID of entry to change:</label>
+                        <input type="id-change" class="form-control" id="id-input" placeholder="Id of entry to change">
+                    </div>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                        id="display-btn">
+                        Display
+                    </button>
+
+                    <button class="btn btn-default" id="delete-btn">Delete</button>
+                </form>
+
+            </div>
+            <div class="col-xs-4 no-float my-auto" style="background-color: midnightblue;">
+                <p style="font-size: 150px; padding-top: 5px;padding-left:25px; text-align: center">
+                    💉
+                </p>
+
             </div>
         </div>
-    </nav>
-<div class="container2" id="hide">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h2>Welcome Administrators</h2>
-                <form class="control">
-                    <div class="form-group">
-                        <label for="id">Enter the id of the entry to delete: </label>
-                        <input type="id-delete" class="form-control" id="id-input" placeholder="id">
-                    </div>
-                    <button type="delete" class="btn btn-default">Delete Entry</button>
-                </form>
-            </div>
 
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
         </div>
     </div>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="login.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/admin.js"></script>
 
 </body>
 
