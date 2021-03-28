@@ -1,11 +1,84 @@
-<nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
+
+<head>
+    <title>Welcome Administrators</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+</head>
+
+<body>
+    <div class="row align-items-center justify-content-center">
+
+        <div class="col-sm-8" style="padding-left:10%; padding-right:10%">
+            <h2 style="color: midnightblue">Welcome Administrators</h2>
+            <a href="/logout">
+                Logout
+            </a>
+        
+            <form class="manage">
+                <br>
+                <div class="form-group">
+                    <label for="ID-change" style="color:midnightblue">Enter ID of entry to change:</label>
+                    <input type="id-change" class="form-control" id="id-input" placeholder="ID of entry to change">
+                </div>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    id="display-btn" style="background-color: #82d9c9;color: midnightblue; border-color: #82d9c9;">
+                    Display
+                </button>
+
+                <button class="btn btn-default" id="delete-btn" style="background-color: #82d9c9;color: midnightblue; border-color: #82d9c9;">Delete</button>
+            </form>
+
+        </div>
+
+        <div class="col-sm-4" style="background-color: midnightblue;height:100vh;">
+            <div style="font-size: 150px;align-items:center;margin-top: auto;
+                    margin-bottom: auto;padding-top:40%; padding-left: 25%">
+                💉
             </div>
         </div>
-    </nav>
-    <div class="container1">
-        <div class="row">
-            I am an admin page and I do stuff
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">User Entry</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
         </div>
     </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/admin.js"></script>
+
+</body>
+
