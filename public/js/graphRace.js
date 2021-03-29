@@ -22,21 +22,26 @@ document.addEventListener('DOMContentLoaded', () => {
         })
             .then(function (raceInput) {
                console.log("I am in raceValues userData "+ raceInput)
-              const yModerna = Object.values(raceInput[0])
+              let yModerna = Object.values(raceInput[0])
               yModerna.pop()
+              yModerna = yModerna.map(Number)
               console.log(yModerna)
-              const yPfizer = Object.values(raceInput[1])
+              let yPfizer = Object.values(raceInput[1])
               yPfizer.pop()
+              yPfizer = yPfizer.map(Number)
               console.log(yPfizer)
-              const yjandj = Object.values(raceInput[2])
+              let yjandj = Object.values(raceInput[2])
               yjandj.pop()
+              yjandj = yjandj.map(Number)
               console.log(yjandj)
-            }).then((yModerna, yPfizer, yjandj)=> drawGraph(yModerna, yPfizer, yjandj))
+              drawGraph(yModerna, yPfizer, yjandj)
+            })
     }
 
 function drawGraph(yModerna, yPfizer, yjandj) {
+    console.log("I'm inside draw " + yModerna)
     var trace1 = {
-        x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever', 'No Symptoms'],
+        x: ['Pain at Site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Nausea', 'Vomiting', 'Chills', 'Swelling', 'Rash', 'Fever', 'Severe Allergic Reaction', 'No Symptoms'],
         // Y axis needs to be a variable 
         y: yPfizer,
         type: 'bar',
@@ -46,7 +51,7 @@ function drawGraph(yModerna, yPfizer, yjandj) {
         }
     };
     var trace2 = {
-        x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever', 'No Symptoms'],
+        x: ['Pain at Site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Nausea', 'Vomiting', 'Chills', 'Swelling', 'Rash', 'Fever', 'Severe Allergic Reaction', 'No Symptoms'],
         // Y axis needs to be a variable
         y: yModerna,
         type: 'bar',
@@ -56,7 +61,7 @@ function drawGraph(yModerna, yPfizer, yjandj) {
         }
     };
     var trace3 = {
-        x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever', 'No Symptoms'],
+        x: ['Pain at Site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Nausea', 'Vomiting', 'Chills', 'Swelling', 'Rash', 'Fever', 'Severe Allergic Reaction', 'No Symptoms'],
         // Y axis needs to be a variable.
         y: yjandj,
         type: 'bar',
@@ -70,10 +75,16 @@ function drawGraph(yModerna, yPfizer, yjandj) {
 
     var layout = {
 
-        title: 'Race Symptoms',
+        title: 'Common Symptoms By Race',
         xaxis: {
-            tickangle: -45
+            tickangle: -25,
+            color: 'rgb(3,49, 140)',
         },
+        yaxis: {
+            range: [1,40],
+            color: 'rgb(3,49, 140)',
+        },
+        
         barmode: 'group'
     };
 
