@@ -56,3 +56,8 @@ h2{
 #hide{
     display:none;
 }
+
+.btn {
+    padding-top: 2%;
+    margin-top: 5px;
+}

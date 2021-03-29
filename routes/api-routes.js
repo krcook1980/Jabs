@@ -45,7 +45,7 @@ module.exports = function (app) {
   });
 
   app.post("/api/users", (req, res) => {
-    console.log(req.body);
+    
     db.User.create(req.body).then((dbPost) => res.json(dbPost));
   });
 
@@ -104,17 +104,8 @@ module.exports = function (app) {
     }).then(data => {
     
      const userData = JSON.stringify(data)
-     console.log ("I am from the db " + userData)
      res.json(data)
-     
-      // const yModerna = Object.values(stuff[0])
-      // console.log("I am stuff " + stuff)
-      // console.log(yModerna)
-      // let yPfizer = testVar.map(function () {
-      //   console.log(parseInt(testVar[1]));
-      // });
-      // let yJNJ = testVar.map(function () {
-      //   console.log(parseInt(testVar[2]));
+         
     });
   })
 
@@ -200,41 +191,8 @@ module.exports = function (app) {
   })
 
 
-  async function createSurvey(req, res) {
-    const newUser = await db.User.create({      
-      race: req.body[0].race,
-      sex: req.body[0].sex,
-      age: req.body[0].age,});
-
-    const newVaccine1 = await db.Vaccine.create(
-      {
-      vaccine_type: req.body[1].vaccine_type,    
-      shot_one: 1,
-      shot_two: 0,
-    });
-
-    // const newVaccine2 = await db.Vaccine.create(req.body)
-    const newSymptom1 = await db.Symptom.create({
-      pain_at_site: true,
-      fatigue: true,
-      headache: true,
-      muscle_soreness: false,
-      joint_pain: false,
-      nausea: true,
-      vomiting: false,
-      chills: true,
-      swelling: false,
-      rash: false,
-      fever: true,
-      severe_allergic_reaction: false,
-      no_symptoms: false
-    });
-    // const newSymptom2 = await db.Symptom.create(req.body)
-    console.log(await "newSurvey has been created")
-  }
-
   app.post('/api/index', (req, res) => {
-    console.log(req.body);
+    
     createSurvey(req, (result) => {
       if (result.changedRows === 0) {
         return res.status(404).end();
@@ -243,7 +201,7 @@ module.exports = function (app) {
     });
 
   app.post("/api/index", (req, res) => {
-    // console.log(req.body);
+    
     
     createSurvey(req, (result) => {
       if (result.changedRows === 0) {
@@ -258,16 +216,17 @@ module.exports = function (app) {
 });
 
 async function createSurvey(req, res) {
+  console.log("this is stuff" + req.body)
   //make new user
   const newUser = await db.User.create({      
     race: req.body[0].race,
     sex: req.body[0].sex,
     age: req.body[0].age,
   }).then((newUser1) => {
-    console.log(newUser1.dataValues)
+    
     //get user id
        newUserId.push(newUser1.dataValues.id)
-       console.log("user 1 id " + newUserId[newUserId.length - 1])
+       
      });
 //make first shot vaccine
   const newVaccine1 = await db.Vaccine.create(
@@ -282,13 +241,13 @@ async function createSurvey(req, res) {
     
     //get first shot id
        newVac1Id.push(newVac1.dataValues.id)
-       console.log("vaccine 1 id " + newVac1Id[newVac1Id.length - 1])
+       
      });
   
   //Make shot 2 vaccine
   const newVaccine2 = await db.Vaccine.create(
     {
-    vaccine_type: req.body[1].vaccine_type,    
+    vaccine_type: req.body[2].vaccine_type,    
     shot_one: 0,
     shot_two: 1,
     UserId: newUserId[newUserId.length - 1]
@@ -302,37 +261,37 @@ async function createSurvey(req, res) {
 
   // make first shot symptoms
   const newSymptom1 = await db.Symptom.create({
-    pain_at_site: true,
-    fatigue: true,
-    headache: true,
-    muscle_soreness: false,
-    joint_pain: false,
-    nausea: true,
-    vomiting: false,
-    chills: true,
-    swelling: false,
-    rash: false,
-    fever: true,
-    severe_allergic_reaction: false,
-    no_symptoms: false,
+    pain_at_site: req.body[3].pain_at_site1,
+    fatigue: req.body[3].fatigue1,
+    headache: req.body[3].headache1,
+    muscle_soreness: req.body[3].muscle_soreness1,
+    joint_pain: req.body[3].joint_pain1,
+    nausea: req.body[3].nausea1,
+    vomiting: req.body[3].vomiting1,
+    chills: req.body[3].chills1,
+    swelling: req.body[3].swelling1,
+    rash: req.body[3].rash1,
+    fever: req.body[3].fever1,
+    severe_allergic_reaction: req.body[3].severe_allergic_reaction1,
+    no_symptoms: req.body[3].no_symptoms1,
     VaccineId: newVac1Id[newVac1Id.length - 1]
   });
 
     // make second shot symptoms
     const newSymptom2 = await db.Symptom.create({
-      pain_at_site: true,
-      fatigue: false,
-      headache: false,
-      muscle_soreness: false,
-      joint_pain: false,
-      nausea: true,
-      vomiting: false,
-      chills: true,
-      swelling: false,
-      rash: false,
-      fever: true,
-      severe_allergic_reaction: false,
-      no_symptoms: false,
+      pain_at_site: req.body[4].pain_at_site2,
+      fatigue: req.body[4].fatigue2,
+      headache: req.body[4].headache2,
+      muscle_soreness: req.body[4].muscle_soreness2,
+      joint_pain: req.body[4].joint_pain2,
+      nausea: req.body[4].nausea2,
+      vomiting: req.body[4].vomiting2,
+      chills: req.body[4].chills2,
+      swelling: req.body[4].swelling2,
+      rash: req.body[4].rash2,
+      fever: req.body[4].fever2,
+      severe_allergic_reaction: req.body[4].severe_allergic_reaction2,
+      no_symptoms: req.body[4].no_symptoms2,
       VaccineId: newVac2Id[newVac2Id.length - 1]
     });
   // const newSymptom2 = await db.Symptom.create(req.body)

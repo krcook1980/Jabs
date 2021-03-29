@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     var trace1 = {
-        x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever', 'No Symptoms'],
+        x:['Pain at Site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Nausea', 'Vomiting', 'Chills', 'Swelling', 'Rash', 'Fever', 'Severe Allergic Reaction', 'No Symptoms'],
         // Y axis needs to be a variable 
         y: [20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17, 10],
         type: 'bar',
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     var trace2 = {
-        x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever', 'No Symptoms'],
+        x:['Pain at Site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Nausea', 'Vomiting', 'Chills', 'Swelling', 'Rash', 'Fever', 'Severe Allergic Reaction', 'No Symptoms'],
         // Y axis needs to be a variable
         y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16, 5],
         type: 'bar',
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     var trace3 = {
-        x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever', 'No Symptoms'],
+        x:['Pain at Site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Nausea', 'Vomiting', 'Chills', 'Swelling', 'Rash', 'Fever', 'Severe Allergic Reaction', 'No Symptoms'],
         // Y axis needs to be a variable.
         y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16, 10],
         type: 'bar',
@@ -45,10 +45,16 @@ document.addEventListener('DOMContentLoaded', () => {
     var data = [trace1, trace2, trace3];
 
     var layout2 = {
-        title: 'Age Symptoms',
+        title: 'Common Symptoms By Age Group',
         xaxis: {
-            tickangle: -45
+            tickangle: -25,
+            color: 'rgb(3,49, 140)',
         },
+        yaxis: {
+            range: [1,40],
+            color: 'rgb(3,49, 140)',
+        },
+
         barmode: 'group'
     };
 
