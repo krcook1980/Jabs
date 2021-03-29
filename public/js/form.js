@@ -32,18 +32,18 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             console.log(symptomData1)
             const symptomData2 = {
-                pain_at_site: document.getElementById('symptomInjectionPain2').value,
-                fever: document.getElementById('symptomFever2').value.trim(),
-                fatigue: document.getElementById('symptomFatigue2').value.trim(),
-                rash: document.getElementById('symptomRash2').value.trim(),
-                joint_pain: document.getElementById('symptomJointPain2').value.trim(),
-                headache: document.getElementById('symptomHeadache2').value.trim(),
-                muscle_soreness: document.getElementById('symptomMuscleAches2').value.trim(),
-                chills: document.getElementById('symptomChills2').value.trim(),
-                nausea: document.getElementById('symptomNausea2').value.trim(),
-                swelling: document.getElementById('symptomSwelling2').value.trim(),
-                vomiting: document.getElementById('symptomVomiting2').value.trim(),
-                no_symptoms: document.getElementById('noSymptoms2').value.trim(),
+                pain_at_site2: document.getElementById('symptomInjectionPain2').value,
+                fever2: document.getElementById('symptomFever2').value.trim(),
+                fatigue2: document.getElementById('symptomFatigue2').value.trim(),
+                rash2: document.getElementById('symptomRash2').value.trim(),
+                joint_pain2: document.getElementById('symptomJointPain2').value.trim(),
+                headache2: document.getElementById('symptomHeadache2').value.trim(),
+                muscle_soreness2: document.getElementById('symptomMuscleAches2').value.trim(),
+                chills2: document.getElementById('symptomChills2').value.trim(),
+                nausea2: document.getElementById('symptomNausea2').value.trim(),
+                swelling2: document.getElementById('symptomSwelling2').value.trim(),
+                vomiting2: document.getElementById('symptomVomiting2').value.trim(),
+                no_symptoms2: document.getElementById('noSymptoms2').value.trim(),
             };
             console.log(symptomData2)
 
@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             console.log(vaccineData)
 
+            const newSurvey = [userData, vaccineData, symptomData1, symptomData2]
+
             // Send POST request
             fetch('/api/index', {
                 method: 'POST',
@@ -62,9 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Content-Type': 'application/json',
                 },
                 // make sure to serialize the JSON body
-                body: JSON.stringify(submitSurvey),
+                body: JSON.stringify(newSurvey),
             }).then((response) => {
                 console.log(response);
+                alert('Your survey has been submitted.');
+                window.location.replace('/statistics');
             })
         })
     }
