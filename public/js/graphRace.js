@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // raceInput.val("");
 
     });
-  }
+  
 
 
     function raceValues(race) {
@@ -38,7 +38,7 @@ function drawGraph(yModerna, yPfizer, yjandj) {
     var trace1 = {
         x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever', 'No Symptoms'],
         // Y axis needs to be a variable 
-        y: yModerna,
+        y: yPfizer,
         type: 'bar',
         name: 'Pfizer',
         marker: {
@@ -48,7 +48,7 @@ function drawGraph(yModerna, yPfizer, yjandj) {
     var trace2 = {
         x: ['Pain at injection site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Enlarged Glands', 'Nausea & Vomiting', 'Vomiting', 'Chills', 'Swelling', 'Skin Redness', 'Fever', 'No Symptoms'],
         // Y axis needs to be a variable
-        y: yPfizer,
+        y: yModerna,
         type: 'bar',
         name: 'Moderna',
         marker: {
