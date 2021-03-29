@@ -255,7 +255,7 @@ module.exports = function (app) {
      
     })
 
-};
+});
 
 async function createSurvey(req, res) {
   //make new user
@@ -338,5 +338,9 @@ async function createSurvey(req, res) {
   // const newSymptom2 = await db.Symptom.create(req.body)
   console.log(await "newSurvey has been created")
 }
+}
+
+
+
 
 
