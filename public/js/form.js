@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
             };
 
+
             const vaccineData2 = {
                 vaccine_type: document.getElementById('inputVaccine').value.trim(),
                 shot_one: 0,
@@ -62,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             // console.log(vaccineData)
             const newSurvey = [userData, vaccineData1, vaccineData2, symptomData1, symptomData2]
+
             // Send POST request
             fetch('/api/index', {
                 method: 'POST',
@@ -71,10 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 // make sure to serialize the JSON body
                 body: JSON.stringify(newSurvey),
+
             }).then((res) => {
                 alert("Thank you, your data was received")
-                // console.log(res)
-                window.location.replace("/statistics");
+                  
+                window.location.replace('/statistics');
+
             })
         })
     }

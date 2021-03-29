@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
 
     $("#raceSubmit").on("click", event => {
@@ -6,7 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("I am Eloy questions " + raceInput)
         raceValues(raceInput);
         // raceInput.val("");
+
     });
+  }
+
 
     function raceValues(race) {
         fetch(`/api/race-graph/${race}`, {
@@ -60,10 +64,12 @@ function drawGraph(yModerna, yPfizer, yjandj) {
         marker: {
             color: 'rgb(42,234,110)',
         }
+
     };
     var data = [trace1, trace2, trace3];
 
     var layout = {
+
         title: 'Race Symptoms',
         xaxis: {
             tickangle: -45
@@ -73,4 +79,5 @@ function drawGraph(yModerna, yPfizer, yjandj) {
 
     Plotly.newPlot('myDiv', data, layout);
 }
+
 });

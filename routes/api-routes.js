@@ -9,6 +9,7 @@ const newVac1Id = []
 const newVac2Id = []
 
 
+
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -69,6 +70,7 @@ module.exports = function (app) {
   app.get("/api/race-graph/:race", (req, res) => {
    
      db.User.findAll({
+
       group: ['vaccine_type'],
       attributes: [
         [db.sequelize.fn('sum', db.sequelize.col('pain_at_site')), 'pain_at_site'],
@@ -197,6 +199,49 @@ module.exports = function (app) {
     });
   })
 
+
+  async function createSurvey(req, res) {
+    const newUser = await db.User.create({      
+      race: req.body[0].race,
+      sex: req.body[0].sex,
+      age: req.body[0].age,});
+
+    const newVaccine1 = await db.Vaccine.create(
+      {
+      vaccine_type: req.body[1].vaccine_type,    
+      shot_one: 1,
+      shot_two: 0,
+    });
+
+    // const newVaccine2 = await db.Vaccine.create(req.body)
+    const newSymptom1 = await db.Symptom.create({
+      pain_at_site: true,
+      fatigue: true,
+      headache: true,
+      muscle_soreness: false,
+      joint_pain: false,
+      nausea: true,
+      vomiting: false,
+      chills: true,
+      swelling: false,
+      rash: false,
+      fever: true,
+      severe_allergic_reaction: false,
+      no_symptoms: false
+    });
+    // const newSymptom2 = await db.Symptom.create(req.body)
+    console.log(await "newSurvey has been created")
+  }
+
+  app.post('/api/index', (req, res) => {
+    console.log(req.body);
+    createSurvey(req, (result) => {
+      if (result.changedRows === 0) {
+        return res.status(404).end();
+    }
+    res.status(200).end();
+    });
+
   app.post("/api/index", (req, res) => {
     // console.log(req.body);
     
@@ -248,6 +293,7 @@ async function createSurvey(req, res) {
     shot_two: 1,
     UserId: newUserId[newUserId.length - 1]
 
+
   }).then((newVac2) => {
     
        newVac2Id.push(newVac2.dataValues.id)
@@ -292,4 +338,5 @@ async function createSurvey(req, res) {
   // const newSymptom2 = await db.Symptom.create(req.body)
   console.log(await "newSurvey has been created")
 }
+
 
