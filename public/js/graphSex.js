@@ -1,5 +1,4 @@
-const sexInput;
-$(document).ready(() => {
+document.addEventListener('DOMContentLoaded', () => {
 
     $("#sex-btn").on("click", event => {
         event.preventDefault();

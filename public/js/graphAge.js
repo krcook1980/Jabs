@@ -1,5 +1,5 @@
-const ageInput;
-$(document).ready(() => {
+
+document.addEventListener('DOMContentLoaded', () => {
 
     $("#age-btn").on("click", event => {
         event.preventDefault();
