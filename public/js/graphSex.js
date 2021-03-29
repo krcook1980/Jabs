@@ -1,9 +1,11 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   $("#sex-btn").on("click", (event) => {
     event.preventDefault();
     sexInput = $("#sexDrop").val();
     sexInput.val("");
   });
+
 
   var trace1 = {
     x: [

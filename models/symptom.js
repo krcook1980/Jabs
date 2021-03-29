@@ -35,6 +35,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Symptom',
-  });
+    timestamps: false,
+  },
+ );
   return Symptom;
 };

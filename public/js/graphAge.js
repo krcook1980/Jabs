@@ -1,5 +1,7 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
-    // $(document).ready(() => {
+
 
     $("#age-btn").on("click", event => {
         event.preventDefault();

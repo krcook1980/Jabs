@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       models.Vaccine.belongsTo(models.User, {
         onDelete: 'cascade',
+        
     });
     models.Vaccine.hasMany(models.Symptom);
 
@@ -27,6 +28,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Vaccine',
-  });
+    timestamps: false,
+  },
+  );
   return Vaccine;
 };
