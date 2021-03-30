@@ -1,53 +1,61 @@
-[Heroku Location](https://dashboard.heroku.com/apps/jab-effects)
+# Jab-Effects [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
 
-[Wireframe in sheets](https://docs.google.com/spreadsheets/d/1kO9WPdumPrjP4ZC5pnigp7pbbInsEJhK99Cza7s4y2k/edit?usp=sharing)
+[Deployed Page](https://jab-effects.herokuapp.com/)
 
+  ## Description
+   This versatile and scalable survey tool utilizes mysql, sequelize, handlebars, plotly, passport, html, css, and javascript in order to collect data and store it for graphing of statitics.   
+   
+   We chose to create a survey to help track the side effects of the Covid-19 Vaccine. By collecting demographic information, we can allow the user to view commonly experienced symptoms by race, age group, or sex. We also built an administrator access area in order to view and maintain records. This application is seeded if data, and deployed on Heroku.
 
-## How to use the repository
-Each time you come to work
-1) make sure you are in the main branch in terminal (gitbash or in vs Code open a new terminal)
-2) git pull (this gets all of the most recent files and work done by the team)
+  ## License
+   [View Full MIT License](https://opensource.org/licenses/MIT)
 
-Now before you change any file - make a working branch
-1) in the terminal type git checkout -b "nameMyBranch"
-    pick something meaningful so we can find it later if needed
-2) make sure you are in that branch (it says branch name at end of terminal)
+  ## Table of Contents
 
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Resources](#resources)
+  * [Collaborators](#collaborators)
+  * [Questions](#questions)
+  * [Screenshots](#screenshots)
+  
+  ## Installation
+   Use npm i for the package.json, heroku open to run the heroku database and deploy the page. 
 
+  ## Usage
 
-Great - do your work. You can push to github to your branch as a save feature:
+   In the web browser. 
+   - /index will allow you to see and fill out a survey 
+   - /statistics will allow you to select options to view the graphs
+   - /login will allow you to log in to the administrator section of the site
+   - /admin will allow you to view and delete records (with admin access at login page)
 
-1) in the terminal type git add .
-2) git commit -m "add a meaningful comment"
-3) git push
+   ## Resources
+   Bootcamp Activities from Week 12, 13, and 14.
+   [MySql](https://dev.mysql.com/)
+   [Handelbars](https://handlebarsjs.com/)
+   [W3 Schools](https://www.w3schools.com/)
+   [Stack Overflow](https://stackoverflow.com/) 
+   [Plotly](https://plotly.com/javascript/)
+   [Sequelize](https://sequelize.org/v5/)
+   [Passportjs](http://www.passportjs.org/)
 
-The first time you push your branch it will have you do one more thing:
-1) Copy and paste this line git push --set-upstream origin pushAndPull
-2) then git push
+  ## Collaborators
+  [Andrew Burke](https://github.com/AndrewBurke87)
+  [E.A. Martinez](https://github.com/E-Martinez77)
+  [Kelly Cook](https://github.com/krcook1980)
+  [Kelly Henderson](https://github.com/khendersonPC)  
+  [Ricky Pahn](https://github.com/basedricky)
+  [Spencer Zubal](https://github.com/szubal311)
 
+  ## Questions
+   Please see my [GitHub profile](https://github.com/krcook1980)
+   You can also email me questions at: kellyrcook1980@gmail.com
 
-When you are finished working on that feature or branch ... MAKE SURE YOU ADD THE PULL REQUEST TO GET IT IN THERE FOR THE REST OF US!
-Do the prior step to push the most recent work and then:
+   ## Screenshots
 
-1) in the code you just received back is a link to create a pull request, click that link
-    IF that link is missing or whatever, go into github to the repository and you can create the pull request there
-2) The top should be Base:Main and the Compare: should be your branch name
-3) Enter any comment you think, request a specific reviewer if you want
-4) Click the Create Pull Request
-
-In github someone will approve your pull request change and merge it to the main. IF we run into any conflicts DON'T PANIC! We can resolve them together.
-
-DON'T FORGET:
-If the above completed a project task:
-1) In github, go into the project tab
-2) Click the project name
-3) find the task in the in progress list (ideally it is there because you moved it there... it might be in todo?)
-4) move the task to the done list
-5) click the task name and scroll down to check it off as done
-6) Someone else can move it to the really really done list when we agree the objective is met
-
-
-
-
-
+   <img src ="">
+   <img src ="">
+   <img src ="">
+   <img src ="">
 
