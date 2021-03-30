@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Severe Allergic Reaction",
         "No Symptoms",
       ],
-      y: xPfizer,
+      y: yPfizer,
       type: "bar",
       name: "Pfizer",
       marker: {
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Severe Allergic Reaction",
         "No Symptoms",
       ],
-      y: xModerna,
+      y: yModerna,
       type: "bar",
       name: "Moderna",
       marker: {
