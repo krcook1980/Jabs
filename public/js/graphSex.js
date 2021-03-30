@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  function drawGraph(xModerna, xPfizer, yjandj) {
+  function drawGraph(yModerna, yPfizer, yjandj) {
     console.log("I'm inside draw " + xModerna);
     var trace1 = {
       x: [
