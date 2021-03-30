@@ -116,6 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
       barmode: "group",
     };
 
-    Plotly.newPlot("myDiv", data, layout);
+    Plotly.newPlot("myDiv3", data, layout);
   }
 });
