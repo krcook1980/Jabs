@@ -6,7 +6,7 @@ const db = require("../models");
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(
   new LocalStrategy(
-    // Our user will sign in using an email, rather than a "username"
+    // Our user will sign in using an "username"
     {
       usernameField: "username"
     },
@@ -17,13 +17,13 @@ passport.use(
           username: username
         }
       }).then(dbUser => {
-        // If there's no user with the given email
+        // If there's no user with the given username, it will send a message
         if (!dbUser) {
           return done(null, false, {
             message: "Incorrect username."
           });
         }
-        // If there is a user with the given email, but the password the user gives us is incorrect
+        // If there is a user with the given username, but the password the user gives us is incorrect, send a message
         else if (!dbUser.validPassword(password)) {
           return done(null, false, {
             message: "Incorrect password."
@@ -38,7 +38,7 @@ passport.use(
 
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
-// Just consider this part boilerplate needed to make it all work
+
 passport.serializeUser((user, cb) => {
   cb(null, user);
 });

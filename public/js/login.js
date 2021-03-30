@@ -13,18 +13,16 @@ $(document).ready(() => {
     };
 
     if (!userData.username || !userData.password) {
-      console.log("return");
       return;
     }
 
-   // console.log("userdata" + userData.password);
     // If we have a username and password we run the loginUser function and clear the form
     loginUser(userData.username, userData.password);
     usernameInput.val("");
     passwordInput.val("");
   });
 
-  // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+  // loginUser does a post to our "api/login" route and if successful, redirects us the the admin page
   function loginUser(username, password) {
     
     $.post("/api/login", {

@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     $("#ageSubmit").on("click", event => {
         event.preventDefault();
         ageInput = $("#inputAge").val();
-        console.log("I am Andrew questions " + ageInput)
         ageValues(ageInput);
-        // ageInput.val("");
     });
+
+    //This function grabs the age values and then creates a graph of age comparisons for the three vaccines.
     function ageValues(age) {
         fetch(`/api/age-graph/${age}`, {
             method: 'GET',
@@ -16,21 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
         })
             .then(function (ageInput) {
                 let ageArr = (ageInput.map(age => Object.values(age)).map(convert => convert.slice(0, convert.length-2)).map(arr => arr.map(Number)))
-                console.log("I am in ageValues userData " + JSON.stringify(ageArr))
+                
                 let yModerna = (ageArr[0])
-                console.log(yModerna)
+                
                 let yPfizer = (ageArr[1])
-                console.log(yPfizer)
+               
                 let yjandj = (ageArr[2])
-                console.log(yjandj)
+                
                 drawGraph(yModerna, yPfizer, yjandj)
             })
     }
     function drawGraph(yModerna, yPfizer, yjandj) {
-        console.log("I'm inside draw " + yModerna)
         var trace1 = {
             x: ['Pain at Site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Nausea', 'Vomiting', 'Chills', 'Swelling', 'Rash', 'Fever', 'Severe Allergic Reaction', 'No Symptoms'],
-            // Y axis needs to be a variable 
             y: yPfizer,
             type: 'bar',
             name: 'Pfizer',
@@ -40,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         var trace2 = {
             x: ['Pain at Site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Nausea', 'Vomiting', 'Chills', 'Swelling', 'Rash', 'Fever', 'Severe Allergic Reaction', 'No Symptoms'],
-            // Y axis needs to be a variable
             y: yModerna,
             type: 'bar',
             name: 'Moderna',
@@ -50,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         var trace3 = {
             x: ['Pain at Site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Nausea', 'Vomiting', 'Chills', 'Swelling', 'Rash', 'Fever', 'Severe Allergic Reaction', 'No Symptoms'],
-            // Y axis needs to be a variable.
             y: yjandj,
             type: 'bar',
             name: 'Johnson & Johnson',

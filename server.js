@@ -34,7 +34,6 @@ app.use(express.static('public'));
 
 // Invoke routes
 require("./routes/api-routes.js")(app);
-// require("./routes/api-routes2.js")(app);
 require("./routes/html-routes.js")(app);
 
 //start the server and database connection
