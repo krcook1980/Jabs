@@ -4,11 +4,9 @@ const passport = require("../config/passport");
 const { Op } = require("sequelize");
 const { createReadStream } = require("fs");
 const { response } = require("express");
-const newUserId = []
-const newVac1Id = []
-const newVac2Id = []
-
-
+const newUserId = [];
+const newVac1Id = [];
+const newVac2Id = [];
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -18,10 +16,9 @@ module.exports = function (app) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       username: req.username,
-      password: req.password
+      password: req.password,
     });
   });
-
 
   // Route for logging user out
   app.get("/logout", (req, res) => {
@@ -39,53 +36,60 @@ module.exports = function (app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         username: req.username,
-        id: req.id
+        id: req.id,
       });
     }
   });
 
   app.post("/api/users", (req, res) => {
-    
     db.User.create(req.body).then((dbPost) => res.json(dbPost));
   });
-
 
   app.delete("/api/users/:id", (req, res) => {
     db.User.destroy({
       where: {
-        id: req.params.id
-      }
-    }).then(dbPost => res.json(dbPost));
-
-  })
+        id: req.params.id,
+      },
+    }).then((dbPost) => res.json(dbPost));
+  });
 
   app.get("/api/users/:id", (req, res) => {
     db.User.findOne({
       where: {
-        id: req.params.id
-      }
+        id: req.params.id,
+      },
     }).then((dbPost) => res.json(dbPost));
   });
 
   app.get("/api/race-graph/:race", (req, res) => {
-   
-     db.User.findAll({
-
-      group: ['vaccine_type'],
+    db.User.findAll({
+      group: ["vaccine_type"],
       attributes: [
-        [db.sequelize.fn('sum', db.sequelize.col('pain_at_site')), 'pain_at_site'],
-        [db.sequelize.fn('sum', db.sequelize.col('fatigue')), 'fatigue'],
-        [db.sequelize.fn('sum', db.sequelize.col('headache')), 'headache'],
-        [db.sequelize.fn('sum', db.sequelize.col('muscle_soreness')), 'muscle_soreness'],
-        [db.sequelize.fn('sum', db.sequelize.col('joint_pain')), 'joint_pain'],
-        [db.sequelize.fn('sum', db.sequelize.col('nausea')), 'nausea'],
-        [db.sequelize.fn('sum', db.sequelize.col('vomiting')), 'vomiting'],
-        [db.sequelize.fn('sum', db.sequelize.col('chills')), 'chills'],
-        [db.sequelize.fn('sum', db.sequelize.col('swelling')), 'swelling'],
-        [db.sequelize.fn('sum', db.sequelize.col('rash')), 'rash'],
-        [db.sequelize.fn('sum', db.sequelize.col('fever')), 'fever'],
-        [db.sequelize.fn('sum', db.sequelize.col('severe_allergic_reaction')), 'severe_allergic_reaction'],
-        [db.sequelize.fn('sum', db.sequelize.col('no_symptoms')), 'no_symptoms']
+        [
+          db.sequelize.fn("sum", db.sequelize.col("pain_at_site")),
+          "pain_at_site",
+        ],
+        [db.sequelize.fn("sum", db.sequelize.col("fatigue")), "fatigue"],
+        [db.sequelize.fn("sum", db.sequelize.col("headache")), "headache"],
+        [
+          db.sequelize.fn("sum", db.sequelize.col("muscle_soreness")),
+          "muscle_soreness",
+        ],
+        [db.sequelize.fn("sum", db.sequelize.col("joint_pain")), "joint_pain"],
+        [db.sequelize.fn("sum", db.sequelize.col("nausea")), "nausea"],
+        [db.sequelize.fn("sum", db.sequelize.col("vomiting")), "vomiting"],
+        [db.sequelize.fn("sum", db.sequelize.col("chills")), "chills"],
+        [db.sequelize.fn("sum", db.sequelize.col("swelling")), "swelling"],
+        [db.sequelize.fn("sum", db.sequelize.col("rash")), "rash"],
+        [db.sequelize.fn("sum", db.sequelize.col("fever")), "fever"],
+        [
+          db.sequelize.fn("sum", db.sequelize.col("severe_allergic_reaction")),
+          "severe_allergic_reaction",
+        ],
+        [
+          db.sequelize.fn("sum", db.sequelize.col("no_symptoms")),
+          "no_symptoms",
+        ],
       ],
       logging: console.log,
       where: {
@@ -93,189 +97,202 @@ module.exports = function (app) {
       },
       include: [
         {
-          model: db.Vaccine, attributes: ['vaccine_type'],
+          model: db.Vaccine,
+          attributes: ["vaccine_type"],
           include: [
             {
-              model: db.Symptom, attributes: [],
-            }
-          ]
-        }
+              model: db.Symptom,
+              attributes: [],
+            },
+          ],
+        },
       ],
-    }).then(data => {
-    
-     const userData = JSON.stringify(data)
-     res.json(data)
-         
+    }).then((data) => {
+      //  const userData = JSON.stringify(data)
+      res.json(data);
     });
-  })
+  });
 
   app.post("api/race-graph/age", (req, res) => {
     db.User.findAll({
-      group: ['vaccine_type'],
+      group: ["vaccine_type"],
       attributes: [
-        [db.sequelize.fn('sum', db.sequelize.col('pain_at_site')), 'pain_at_site'],
-        [db.sequelize.fn('sum', db.sequelize.col('fatigue')), 'fatigue'],
-        [db.sequelize.fn('sum', db.sequelize.col('headache')), 'headache'],
-        [db.sequelize.fn('sum', db.sequelize.col('muscle_soreness')), 'muscle_soreness'],
-        [db.sequelize.fn('sum', db.sequelize.col('joint_pain')), 'joint_pain'],
-        [db.sequelize.fn('sum', db.sequelize.col('nausea')), 'nausea'],
-        [db.sequelize.fn('sum', db.sequelize.col('vomiting')), 'vomiting'],
-        [db.sequelize.fn('sum', db.sequelize.col('chills')), 'chills'],
-        [db.sequelize.fn('sum', db.sequelize.col('swelling')), 'swelling'],
-        [db.sequelize.fn('sum', db.sequelize.col('rash')), 'rash'],
-        [db.sequelize.fn('sum', db.sequelize.col('fever')), 'fever'],
-        [db.sequelize.fn('sum', db.sequelize.col('severe_allergic_reaction')), 'severe_allergic_reaction'],
-        [db.sequelize.fn('sum', db.sequelize.col('no_symptoms')), 'no_symptoms']
+        [
+          db.sequelize.fn("sum", db.sequelize.col("pain_at_site")),
+          "pain_at_site",
+        ],
+        [db.sequelize.fn("sum", db.sequelize.col("fatigue")), "fatigue"],
+        [db.sequelize.fn("sum", db.sequelize.col("headache")), "headache"],
+        [
+          db.sequelize.fn("sum", db.sequelize.col("muscle_soreness")),
+          "muscle_soreness",
+        ],
+        [db.sequelize.fn("sum", db.sequelize.col("joint_pain")), "joint_pain"],
+        [db.sequelize.fn("sum", db.sequelize.col("nausea")), "nausea"],
+        [db.sequelize.fn("sum", db.sequelize.col("vomiting")), "vomiting"],
+        [db.sequelize.fn("sum", db.sequelize.col("chills")), "chills"],
+        [db.sequelize.fn("sum", db.sequelize.col("swelling")), "swelling"],
+        [db.sequelize.fn("sum", db.sequelize.col("rash")), "rash"],
+        [db.sequelize.fn("sum", db.sequelize.col("fever")), "fever"],
+        [
+          db.sequelize.fn("sum", db.sequelize.col("severe_allergic_reaction")),
+          "severe_allergic_reaction",
+        ],
+        [
+          db.sequelize.fn("sum", db.sequelize.col("no_symptoms")),
+          "no_symptoms",
+        ],
       ],
       logging: console.log,
       where: {
         age: {
-          [Op.between]: [req.params.age]
-          },
+          [Op.between]: [req.params.age],
+        },
       },
       include: [
         {
-          model: db.Vaccine, attributes: ['vaccine_type'],
+          model: db.Vaccine,
+          attributes: ["vaccine_type"],
           include: [
             {
-              model: db.Symptom, attributes: [],
-            }
-          ]
-        }
+              model: db.Symptom,
+              attributes: [],
+            },
+          ],
+        },
       ],
+    })
+      .then((data) => {
+        //  const stuff = JSON.stringify(data)
+        res.json(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 
-    }).then(data => {
-      //  const stuff = JSON.stringify(data) 
-      res.json(data)
-    }).catch(err => {
-      console.log(err);
-    });
-  })
-
-  app.get("api/race-graph/:sex", (req, res) => {
+  app.get("/api/sex-graph/:sex", (req, res) => {
+    console.log(req.params.sex);
     db.User.findAll({
-      group: ['vaccine_type'],
+      group: ["vaccine_type"],
       attributes: [
-        [db.sequelize.fn('sum', db.sequelize.col('pain_at_site')), 'pain_at_site'],
-        [db.sequelize.fn('sum', db.sequelize.col('fatigue')), 'fatigue'],
-        [db.sequelize.fn('sum', db.sequelize.col('headache')), 'headache'],
-        [db.sequelize.fn('sum', db.sequelize.col('muscle_soreness')), 'muscle_soreness'],
-        [db.sequelize.fn('sum', db.sequelize.col('joint_pain')), 'joint_pain'],
-        [db.sequelize.fn('sum', db.sequelize.col('nausea')), 'nausea'],
-        [db.sequelize.fn('sum', db.sequelize.col('vomiting')), 'vomiting'],
-        [db.sequelize.fn('sum', db.sequelize.col('chills')), 'chills'],
-        [db.sequelize.fn('sum', db.sequelize.col('swelling')), 'swelling'],
-        [db.sequelize.fn('sum', db.sequelize.col('rash')), 'rash'],
-        [db.sequelize.fn('sum', db.sequelize.col('fever')), 'fever'],
-        [db.sequelize.fn('sum', db.sequelize.col('severe_allergic_reaction')), 'severe_allergic_reaction'],
-        [db.sequelize.fn('sum', db.sequelize.col('no_symptoms')), 'no_symptoms']
+        [
+          db.sequelize.fn("sum", db.sequelize.col("pain_at_site")),
+          "pain_at_site",
+        ],
+        [db.sequelize.fn("sum", db.sequelize.col("fatigue")), "fatigue"],
+        [db.sequelize.fn("sum", db.sequelize.col("headache")), "headache"],
+        [
+          db.sequelize.fn("sum", db.sequelize.col("muscle_soreness")),
+          "muscle_soreness",
+        ],
+        [db.sequelize.fn("sum", db.sequelize.col("joint_pain")), "joint_pain"],
+        [db.sequelize.fn("sum", db.sequelize.col("nausea")), "nausea"],
+        [db.sequelize.fn("sum", db.sequelize.col("vomiting")), "vomiting"],
+        [db.sequelize.fn("sum", db.sequelize.col("chills")), "chills"],
+        [db.sequelize.fn("sum", db.sequelize.col("swelling")), "swelling"],
+        [db.sequelize.fn("sum", db.sequelize.col("rash")), "rash"],
+        [db.sequelize.fn("sum", db.sequelize.col("fever")), "fever"],
+        [
+          db.sequelize.fn("sum", db.sequelize.col("severe_allergic_reaction")),
+          "severe_allergic_reaction",
+        ],
+        [
+          db.sequelize.fn("sum", db.sequelize.col("no_symptoms")),
+          "no_symptoms",
+        ],
       ],
-      logging: console.log,
       where: {
         sex: req.params.sex,
       },
       include: [
         {
-          model: db.Vaccine, attributes: ['vaccine_type'],
+          model: db.Vaccine,
+          attributes: ["vaccine_type"],
           include: [
             {
-              model: db.Symptom, attributes: [],
-            }
-          ]
-        }
+              model: db.Symptom,
+              attributes: [],
+            },
+          ],
+        },
       ],
-    }).then(data => {
-      //  const stuff = JSON.stringify(data) 
-      res.json(data)
+    }).then((data) => {
+      const stuff = JSON.stringify(data);
+      console.log("in api stuff returned" + stuff);
+      res.json(data);
     });
-  })
-
-
-  app.post('/api/index', (req, res) => {
-    
-    createSurvey(req, (result) => {
-      if (result.changedRows === 0) {
-        return res.status(404).end();
-    }
-    res.status(200).end();
-    });
+  });
 
   app.post("/api/index", (req, res) => {
-    
-    
     createSurvey(req, (result) => {
       if (result.changedRows === 0) {
         return res.status(404).end();
-    }
-    res.status(200).end();
-    })
-    
-     
-    })
+      }
+      res.status(200).end();
+    });
 
-});
-
-async function createSurvey(req, res) {
-  console.log("this is stuff" + req.body)
-  //make new user
-  const newUser = await db.User.create({      
-    race: req.body[0].race,
-    sex: req.body[0].sex,
-    age: req.body[0].age,
-  }).then((newUser1) => {
-    
-    //get user id
-       newUserId.push(newUser1.dataValues.id)
-       
-     });
-//make first shot vaccine
-  const newVaccine1 = await db.Vaccine.create(
-    {
-    vaccine_type: req.body[1].vaccine_type,    
-    shot_one: 1,
-    shot_two: 0,
-    createdAt: '?',
-    updatedAt: '?',
-    UserId: newUserId[newUserId.length - 1]
-  }).then((newVac1) => {
-    
-    //get first shot id
-       newVac1Id.push(newVac1.dataValues.id)
-       
-     });
-  
-  //Make shot 2 vaccine
-  const newVaccine2 = await db.Vaccine.create(
-    {
-    vaccine_type: req.body[2].vaccine_type,    
-    shot_one: 0,
-    shot_two: 1,
-    UserId: newUserId[newUserId.length - 1]
-
-
-  }).then((newVac2) => {
-    
-       newVac2Id.push(newVac2.dataValues.id)
-     });
-     
-
-  // make first shot symptoms
-  const newSymptom1 = await db.Symptom.create({
-    pain_at_site: req.body[3].pain_at_site1,
-    fatigue: req.body[3].fatigue1,
-    headache: req.body[3].headache1,
-    muscle_soreness: req.body[3].muscle_soreness1,
-    joint_pain: req.body[3].joint_pain1,
-    nausea: req.body[3].nausea1,
-    vomiting: req.body[3].vomiting1,
-    chills: req.body[3].chills1,
-    swelling: req.body[3].swelling1,
-    rash: req.body[3].rash1,
-    fever: req.body[3].fever1,
-    severe_allergic_reaction: req.body[3].severe_allergic_reaction1,
-    no_symptoms: req.body[3].no_symptoms1,
-    VaccineId: newVac1Id[newVac1Id.length - 1]
+    app.post("/api/index", (req, res) => {
+      createSurvey(req, (result) => {
+        if (result.changedRows === 0) {
+          return res.status(404).end();
+        }
+        res.status(200).end();
+      });
+    });
   });
+
+  async function createSurvey(req, res) {
+    console.log("this is stuff" + req.body);
+    //make new user
+    const newUser = await db.User.create({
+      race: req.body[0].race,
+      sex: req.body[0].sex,
+      age: req.body[0].age,
+    }).then((newUser1) => {
+      //get user id
+      newUserId.push(newUser1.dataValues.id);
+    });
+    //make first shot vaccine
+    const newVaccine1 = await db.Vaccine.create({
+      vaccine_type: req.body[1].vaccine_type,
+      shot_one: 1,
+      shot_two: 0,
+      createdAt: "?",
+      updatedAt: "?",
+      UserId: newUserId[newUserId.length - 1],
+    }).then((newVac1) => {
+      //get first shot id
+      newVac1Id.push(newVac1.dataValues.id);
+    });
+
+    //Make shot 2 vaccine
+    const newVaccine2 = await db.Vaccine.create({
+      vaccine_type: req.body[2].vaccine_type,
+      shot_one: 0,
+      shot_two: 1,
+      UserId: newUserId[newUserId.length - 1],
+    }).then((newVac2) => {
+      newVac2Id.push(newVac2.dataValues.id);
+    });
+
+    // make first shot symptoms
+    const newSymptom1 = await db.Symptom.create({
+      pain_at_site: req.body[3].pain_at_site1,
+      fatigue: req.body[3].fatigue1,
+      headache: req.body[3].headache1,
+      muscle_soreness: req.body[3].muscle_soreness1,
+      joint_pain: req.body[3].joint_pain1,
+      nausea: req.body[3].nausea1,
+      vomiting: req.body[3].vomiting1,
+      chills: req.body[3].chills1,
+      swelling: req.body[3].swelling1,
+      rash: req.body[3].rash1,
+      fever: req.body[3].fever1,
+      severe_allergic_reaction: req.body[3].severe_allergic_reaction1,
+      no_symptoms: req.body[3].no_symptoms1,
+      VaccineId: newVac1Id[newVac1Id.length - 1],
+    });
 
     // make second shot symptoms
     const newSymptom2 = await db.Symptom.create({
@@ -292,14 +309,9 @@ async function createSurvey(req, res) {
       fever: req.body[4].fever2,
       severe_allergic_reaction: req.body[4].severe_allergic_reaction2,
       no_symptoms: req.body[4].no_symptoms2,
-      VaccineId: newVac2Id[newVac2Id.length - 1]
+      VaccineId: newVac2Id[newVac2Id.length - 1],
     });
-  // const newSymptom2 = await db.Symptom.create(req.body)
-  console.log(await "newSurvey has been created")
-}
-}
-
-
-
-
-
+    // const newSymptom2 = await db.Symptom.create(req.body)
+    console.log(await "newSurvey has been created");
+  }
+};

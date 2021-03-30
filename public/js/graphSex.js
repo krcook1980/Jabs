@@ -1,96 +1,124 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-  $("#sex-btn").on("click", (event) => {
+  $("#sexButton").on("click", (event) => {
     event.preventDefault();
-    sexInput = $("#sexDrop").val();
-    sexInput.val("");
+    sexInput = $("#inputSex").val();
+    sexValues(sexInput);
   });
+  function sexValues(sex) {
+    fetch(`/api/sex-graph/${sex}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then(function (sexInput) {
+        console.log("in fetch " + sexInput);
+        return sexInput.json();
+      })
+      .then(function (sexInput) {
+        console.log("I am in sexValues userData " + JSON.stringify(sexInput));
+        let yModerna = Object.values(sexInput[0]);
+        yModerna.pop();
+        yModerna = yModerna.map(Number);
+        console.log(yModerna);
+        let yPfizer = Object.values(sexInput[1]);
+        yPfizer.pop();
+        yPfizer = yPfizer.map(Number);
+        console.log(yPfizer);
+        let yjandj = Object.values(sexInput[2]);
+        yjandj.pop();
+        yjandj = yjandj.map(Number);
+        console.log(yjandj);
+        drawGraph(yModerna, yPfizer, yjandj);
+      });
+  }
 
+  function drawGraph(xModerna, xPfizer, yjandj) {
+    console.log("I'm inside draw " + xModerna);
+    var trace1 = {
+      x: [
+        "Pain at Site",
+        "Fatigue",
+        "Headache",
+        "Muscle Soreness",
+        "Joint Pain",
+        "Nausea",
+        "Vomiting",
+        "Chills",
+        "Swelling",
+        "Rash",
+        "Fever",
+        "Severe Allergic Reaction",
+        "No Symptoms",
+      ],
+      y: xPfizer,
+      type: "bar",
+      name: "Pfizer",
+      marker: {
+        color: "rgb(49,130,189)",
+      },
+    };
+    var trace2 = {
+      x: [
+        "Pain at Site",
+        "Fatigue",
+        "Headache",
+        "Muscle Soreness",
+        "Joint Pain",
+        "Nausea",
+        "Vomiting",
+        "Chills",
+        "Swelling",
+        "Rash",
+        "Fever",
+        "Severe Allergic Reaction",
+        "No Symptoms",
+      ],
+      y: xModerna,
+      type: "bar",
+      name: "Moderna",
+      marker: {
+        color: "rgb(214,43,29)",
+      },
+    };
+    var trace3 = {
+      x: [
+        "Pain at Site",
+        "Fatigue",
+        "Headache",
+        "Muscle Soreness",
+        "Joint Pain",
+        "Nausea",
+        "Vomiting",
+        "Chills",
+        "Swelling",
+        "Rash",
+        "Fever",
+        "Severe Allergic Reaction",
+        "No Symptoms",
+      ],
 
-  var trace1 = {
-    x: [
-      "Pain at injection site",
-      "Fatigue",
-      "Headache",
-      "Muscle Soreness",
-      "Joint Pain",
-      "Enlarged Glands",
-      "Nausea & Vomiting",
-      "Vomiting",
-      "Chills",
-      "Swelling",
-      "Skin Redness",
-      "Fever",
-      "No Symptoms",
-    ],
-    // Y axis needs to be a variable
-    y: [20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17, 10],
-    type: "bar",
-    name: "Pfizer",
-    marker: {
-      color: "rgb(49,130,189)",
-    },
-  };
+      y: yjandj,
+      type: "bar",
+      name: "Johnson & Johnson",
+      marker: {
+        color: "rgb(42,234,110)",
+      },
+    };
+    var data = [trace1, trace2, trace3];
 
-  var trace2 = {
-    x: [
-      "Pain at injection site",
-      "Fatigue",
-      "Headache",
-      "Muscle Soreness",
-      "Joint Pain",
-      "Enlarged Glands",
-      "Nausea & Vomiting",
-      "Vomiting",
-      "Chills",
-      "Swelling",
-      "Skin Redness",
-      "Fever",
-      "No Symptoms",
-    ],
-    // Y axis needs to be a variable
-    y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16, 5],
-    type: "bar",
-    name: "Moderna",
-    marker: {
-      color: "rgb(214,43,29)",
-    },
-  };
+    var layout = {
+      title: "Common Symptoms By Race",
+      xaxis: {
+        tickangle: -25,
+        color: "rgb(3,49, 140)",
+      },
+      yaxis: {
+        range: [1, 100],
+        color: "rgb(3,49, 140)",
+      },
 
-  var trace3 = {
-    x: [
-      "Pain at injection site",
-      "Fatigue",
-      "Headache",
-      "Muscle Soreness",
-      "Joint Pain",
-      "Enlarged Glands",
-      "Nausea & Vomiting",
-      "Vomiting",
-      "Chills",
-      "Swelling",
-      "Skin Redness",
-      "Fever",
-      "No Symptoms",
-    ],
-    // Y axis needs to be a variable.
-    y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16, 10],
-    type: "bar",
-    name: "Johnson & Johnson",
-    marker: {
-      color: "rgb(42,234,110)",
-    },
-  };
+      barmode: "group",
+    };
 
-  var data = [trace1, trace2, trace3];
-
-  var layout3 = {
-    title: "Sex Symptoms",
-    xaxis: {
-      tickangle: -45,
-    },
-    barmode: "group",
-  };
-
-  Plotly.newPlot("myDiv3", data, layout3);
+    Plotly.newPlot("myDiv", data, layout);
+  }
 });
