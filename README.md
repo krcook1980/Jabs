@@ -54,8 +54,8 @@
 
    ## Screenshots
 
-   <img src ="">
-   <img src ="">
-   <img src ="">
-   <img src ="">
+  ![Screenshot](https://github.com/krcook1980/Jabs/blob/main/public/assets/scr1.JPG?raw=true)
+   ![Screenshot](https://github.com/krcook1980/Jabs/blob/main/public/assets/scr2.JPG?raw=true)
+  ![Screenshot](https://github.com/krcook1980/Jabs/blob/main/public/assets/src3.JPGg?raw=true)
+
 
