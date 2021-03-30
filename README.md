@@ -31,14 +31,14 @@
    - /admin will allow you to view and delete records (with admin access at login page)
 
    ## Resources
-   Bootcamp Activities from Week 12, 13, and 14.
-   [MySql](https://dev.mysql.com/)
-   [Handelbars](https://handlebarsjs.com/)
-   [W3 Schools](https://www.w3schools.com/)
-   [Stack Overflow](https://stackoverflow.com/) 
-   [Plotly](https://plotly.com/javascript/)
-   [Sequelize](https://sequelize.org/v5/)
-   [Passportjs](http://www.passportjs.org/)
+   Bootcamp Activities from Week 12, 13, and 14.  
+   [MySql](https://dev.mysql.com/)  
+   [Handelbars](https://handlebarsjs.com/)  
+   [W3 Schools](https://www.w3schools.com/)  
+   [Stack Overflow](https://stackoverflow.com/)   
+   [Plotly](https://plotly.com/javascript/)  
+   [Sequelize](https://sequelize.org/v5/)  
+   [Passportjs](http://www.passportjs.org/)  
 
   ## Collaborators
   [Andrew Burke](https://github.com/AndrewBurke87)
@@ -49,13 +49,13 @@
   [Spencer Zubal](https://github.com/szubal311)
 
   ## Questions
-   Please see my [GitHub profile](https://github.com/krcook1980)
+   Please see my [GitHub profile](https://github.com/krcook1980)  
    You can also email me questions at: kellyrcook1980@gmail.com
 
    ## Screenshots
 
   ![Screenshot](https://github.com/krcook1980/Jabs/blob/main/public/assets/scr1.JPG?raw=true)
    ![Screenshot](https://github.com/krcook1980/Jabs/blob/main/public/assets/scr2.JPG?raw=true)
-  ![Screenshot](https://github.com/krcook1980/Jabs/blob/main/public/assets/src3.JPGg?raw=true)
+  ![Screenshot](https://github.com/krcook1980/Jabs/blob/main/public/assets/src3.JPG?raw=true)
 
 
