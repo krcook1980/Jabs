@@ -113,7 +113,19 @@ module.exports = function (app) {
     });
   });
 
-  app.post("api/race-graph/age", (req, res) => {
+  app.get("/api/age-graph/:age", ({params:{age}}, res) => {
+    console.log("I am in api age " + age)
+    let ageChoice = [];
+    if (age == 16) {ageChoice = [16,19]}
+    else if (age == 20){ageChoice = [20,29]}
+    else if (age == 30){ageChoice = [30,39]}
+    else if (age == 40){ageChoice = [40,49]}
+    else if (age == 50){ageChoice = [50,59]}
+    else if (age == 60){ageChoice = [60,69]}
+    else if (age == 70){ageChoice = [70,79]}
+    else if (age == 90){ageChoice = [80,89]}
+    else if (age == 90){ageChoice = [90,110]}
+
     db.User.findAll({
       group: ["vaccine_type"],
       attributes: [
@@ -146,7 +158,7 @@ module.exports = function (app) {
       logging: console.log,
       where: {
         age: {
-          [Op.between]: [req.params.age],
+          [Op.between]: ageChoice,
         },
       },
       include: [
