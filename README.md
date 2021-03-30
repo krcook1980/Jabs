@@ -41,12 +41,12 @@
    [Passportjs](http://www.passportjs.org/)
 
   ## Collaborators
-  [Andrew Burke](https://github.com/AndrewBurke87)
-  [E.A. Martinez](https://github.com/E-Martinez77)
-  [Kelly Cook](https://github.com/krcook1980)
-  [Kelly Henderson](https://github.com/khendersonPC)  
-  [Ricky Pahn](https://github.com/basedricky)
-  [Spencer Zubal](https://github.com/szubal311)
+  [Andrew Burke](https://github.com/AndrewBurke87)  
+  [E.A. Martinez](https://github.com/E-Martinez77)  
+  [Kelly Cook](https://github.com/krcook1980)  
+  [Kelly Henderson](https://github.com/khendersonPC)    
+  [Ricky Pahn](https://github.com/basedricky)  
+  [Spencer Zubal](https://github.com/szubal311)  
 
   ## Questions
    Please see my [GitHub profile](https://github.com/krcook1980)
