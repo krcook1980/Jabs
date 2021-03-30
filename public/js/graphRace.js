@@ -1,17 +1,15 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    //race submit button
     $("#raceSubmit").on("click", event => {
         event.preventDefault();
         raceInput = $("#inputRace").val();
-        console.log("I am Eloy questions " + raceInput)
         raceValues(raceInput);
-        // raceInput.val("");
-
     });
   
 
-
+//grabs the race values and creates the graph.
     function raceValues(race) {
         fetch(`/api/race-graph/${race}`, {
             method: 'GET',
@@ -21,28 +19,22 @@ document.addEventListener('DOMContentLoaded', () => {
             return raceInput.json();
         })
             .then(function (raceInput) {
-               console.log("I am in raceValues userData "+ raceInput)
               let yModerna = Object.values(raceInput[0])
               yModerna.pop()
               yModerna = yModerna.map(Number)
-              console.log(yModerna)
               let yPfizer = Object.values(raceInput[1])
               yPfizer.pop()
               yPfizer = yPfizer.map(Number)
-              console.log(yPfizer)
               let yjandj = Object.values(raceInput[2])
               yjandj.pop()
               yjandj = yjandj.map(Number)
-              console.log(yjandj)
               drawGraph(yModerna, yPfizer, yjandj)
             })
     }
 
 function drawGraph(yModerna, yPfizer, yjandj) {
-    console.log("I'm inside draw " + yModerna)
     var trace1 = {
         x: ['Pain at Site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Nausea', 'Vomiting', 'Chills', 'Swelling', 'Rash', 'Fever', 'Severe Allergic Reaction', 'No Symptoms'],
-        // Y axis needs to be a variable 
         y: yPfizer,
         type: 'bar',
         name: 'Pfizer',
@@ -52,7 +44,6 @@ function drawGraph(yModerna, yPfizer, yjandj) {
     };
     var trace2 = {
         x: ['Pain at Site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Nausea', 'Vomiting', 'Chills', 'Swelling', 'Rash', 'Fever', 'Severe Allergic Reaction', 'No Symptoms'],
-        // Y axis needs to be a variable
         y: yModerna,
         type: 'bar',
         name: 'Moderna',
@@ -62,7 +53,6 @@ function drawGraph(yModerna, yPfizer, yjandj) {
     };
     var trace3 = {
         x: ['Pain at Site', 'Fatigue', 'Headache', 'Muscle Soreness', 'Joint Pain', 'Nausea', 'Vomiting', 'Chills', 'Swelling', 'Rash', 'Fever', 'Severe Allergic Reaction', 'No Symptoms'],
-        // Y axis needs to be a variable.
         y: yjandj,
         type: 'bar',
         name: 'Johnson & Johnson',

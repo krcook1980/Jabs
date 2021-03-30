@@ -1,10 +1,9 @@
 // Wait for the DOM to completely load before we run our JS
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded! 🚀');
 
     const submitSurvey = document.getElementById('covidSurvey');
 
-
+    //this is for the submit button after someone has filled out the survey. It will store the data and redirect to the statistics page
     if (submitSurvey) {
         submitSurvey.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -23,11 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 sex: document.getElementById('inputSex').value.trim(),
                 age: age
             };
-            // console.log(userData)
 
             let pain1 = document.getElementById('symptomInjectionPain1').value.trim(),
                 painOne = parseInt(pain1)
-            console.log("I am parse pain " + painOne)
             let fever1 = document.getElementById('symptomFever1').value.trim(),
                 feverOne = parseInt(fever1)
             let fatigue1 = document.getElementById('symptomFatigue1').value.trim(),
@@ -94,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 severe_allergic_reaction1: severe_reactionOne,
                 no_symptoms1: no_symptomsOne
             };
-            // console.log(symptomData1)
+            
             const symptomData2 = {
                 pain_at_site2: painTwo,
                 fatigue2: fatigueTwo,
@@ -110,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 severe_allergic_reaction2: severe_reactionTwo,
                 no_symptoms2: no_symptomsTwo
             };
-            console.log(symptomData2)
 
             const vaccineData1 = {
                 vaccine_type: document.getElementById('inputVaccine').value.trim(),
@@ -119,13 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             };
 
-
             const vaccineData2 = {
                 vaccine_type: document.getElementById('inputVaccine').value.trim(),
                 shot_one: 0,
                 shot_two: 1,
             };
-            // console.log(vaccineData)
+            
             const newSurvey = [userData, vaccineData1, vaccineData2, symptomData1, symptomData2]
 
             // Send POST request
