@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         color: "rgb(3,49, 140)",
       },
       yaxis: {
-        range: [1, 100],
+        range: [1, 40],
         color: "rgb(3,49, 140)",
       },
 

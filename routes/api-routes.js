@@ -123,7 +123,7 @@ module.exports = function (app) {
     else if (age == 50){ageChoice = [50,59]}
     else if (age == 60){ageChoice = [60,69]}
     else if (age == 70){ageChoice = [70,79]}
-    else if (age == 90){ageChoice = [80,89]}
+    else if (age == 80){ageChoice = [80,89]}
     else if (age == 90){ageChoice = [90,110]}
 
     db.User.findAll({
