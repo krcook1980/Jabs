@@ -20,6 +20,7 @@ $(document).ready(() => {
     loginUser(userData.username, userData.password);
     usernameInput.val("");
     passwordInput.val("");
+    
   });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the admin page
@@ -29,10 +30,9 @@ $(document).ready(() => {
       username: username,
       password: password
     },
-    console.log("login" + username))
+    )
       .then(() => {
-        
-        console.log("window replace");
+
         window.location.replace("/admin");
         
       })

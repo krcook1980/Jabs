@@ -2,7 +2,6 @@
 
 $(document).ready(() => {
   
-  $(".practice").animate({"left": 0}, 3000);
 
   const manageForm = $("form.manage");
   const IDInput = $("input#id-input");
